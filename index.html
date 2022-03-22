@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <title>ShareValue - Front-end Development</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- <div class="p-4" style="width: 100vw; height: 300vh; position: absolute; z-index: 1;">
+      <button class="bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" onclick="increaseSpeed()">Sneller</button>
+      <button class="bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" onclick="decreaseSpeed()">Langzamer</button>
+      <button class="bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" onclick="reset()">Reset</button>
+      <span class="pl-2">Snelheid: <span id="speed"></span></span>
+    </div> -->
+    <div style="position: absolute;">
+      <a-scene id="scene" background="color: rgb(255, 231, 66);" vr-mode-ui="enabled: false;" renderer="colorManagement: true;" keyboard-shortcuts screenshot device-orientation-permission-ui>
+        <a-entity id="rig" position="25 10 0">
+          <a-entity id="camera" camera look-controls wasd-controls></a-entity>
+        </a-entity>
+        <a-assets>
+          <a-asset-item id="frontendObj" src="./frontend developer.obj"></a-asset-item>
+          <a-asset-item id="sharevalueObj" src="./sv3.obj"></a-asset-item>
+          <a-asset-item id="reactRocketObj" src="./react-rocket.obj"></a-asset-item>
+          <a-asset-item id="rocketObj" src="./10475_Rocket_Ship_v1_L3.obj"></a-asset-item>
+          <img id="react-img" src="./react-img.png">
+          <!-- <a-asset-item id="frontendObj" src="./text3d.obj"></a-asset-item> -->
+          <!-- <a-asset-item id="developmentObj" src="./development.obj"></a-asset-item> -->
+          <!-- <a-asset-item id="vueObj" src="./vue.obj"></a-asset-item> -->
+        </a-assets>
+        <a-entity id="front-end" position="20.5 10.7 -4.6" rotation="90 0 0" material="color: #000000;" obj-model="obj: #frontendObj;"></a-entity>
+        <a-entity id="sharevalue" position="21.7 7.2 -4" rotation="90 0 0" material="color: #000000;" obj-model="obj: #sharevalueObj;"></a-entity>
+        <a-entity id="react-rocket" position="19.75 20 -4.6" rotation="90 0 0" material="color: #fff;" obj-model="obj: #reactRocketObj;"></a-entity>
+        <a-entity id="rocket" scale="0.002 0.002 0.002" position="10 -5 -3" material="color: #f00;" rotation="-45 90 -90" obj-model="obj: #rocketObj;"></a-entity>
+        <a-image id="react" position="24.95 19.5 -2" rotation="0 0 0" src="#react-img"></a-image>
+        <!-- <a-entity animation="property: object3D.position.y; from: -90; to: -50; dur: 4000; easing: easeOutCubic" position="50 -50 -420" material="color: #333333;" obj-model="obj: #developmentObj;"></a-entity>
+        <a-entity id="vue1" position="0 0 0" scale="1 1 1" material="color: #42b883;" obj-model="obj: #vueObj;"></a-entity>
+        <a-entity id="vue2" position="0 0 0" scale="1 1 1" material="color: #42b883;" obj-model="obj: #vueObj;"></a-entity>
+        <a-entity id="vue3" position="0 0 0" scale="1 1 1" material="color: #42b883;" obj-model="obj: #vueObj;"></a-entity> -->
+      </a-scene>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // setInterval(() => {
+          // count1 += speed;
+          // count2 -= speed;
+          // count3 += speed;
+          // document.getElementById('vue1').setAttribute('position', `${count1} 8 -30`);
+          // document.getElementById('vue2').setAttribute('position', `${count2} 22 -30`);
+          // document.getElementById('vue3').setAttribute('position', `${count3} -7 -30`);
+          // document.getElementById('speed').textContent = speed * 100;
+        //   console.log("Interval running");
+        // }, 1000);
+      });
+      
+      let colorR = 255;
+      let colorG = 231;
+      let colorB = 66;
+      let reactR = 97;
+      let reactG = 218;
+      let reactB = 251;
+      let reactPassed = false;
+      document.addEventListener('wheel', function(e) {
+        if(e.type != 'wheel')
+        {
+          return;
+        }
+        let delta = ((e.deltaY || -e.wheelDelta || e.detail) >> 10) || 1;
+        delta = delta * (-300);
+        console.log(delta);
+        let positionFEArr = document.getElementById('front-end').getAttribute('position');
+        let positionSVArr = document.getElementById('sharevalue').getAttribute('position');
+        let positionRRArr = document.getElementById('react-rocket').getAttribute('position');
+        let positionRArr = document.getElementById('react').getAttribute('position');
+        let positionRocketArr = document.getElementById('rocket').getAttribute('position');
+        let sceneBG = document.getElementById('scene').getAttribute('background');
+        positionFEArr.y -= 0.05;
+        positionSVArr.y -= 0.05;
+        positionRocketArr.y += 0.05;
+        positionRocketArr.x += 0.05;
+        if (positionRRArr.y > 10.7) {
+          positionRRArr.y -= 0.05;
+        }
+        if (positionRArr.y > 9.5) {
+          positionRArr.y -= 0.05;
+        }
+        if (!reactPassed) {
+          if (colorR !== reactR) {
+            colorR -= 1;
+          }
+          if (colorG !== reactG) {
+            colorG -= 1;
+          }
+          if (colorB !== reactB) {
+            colorB += 1;
+          }
+          console.log(colorR, reactR);
+          console.log(colorG, reactG);
+          console.log(colorB, reactB);
+          if (colorR === reactR
+            && colorG === reactG
+            && colorB === reactB) {
+              reactPassed = true;
+          }
+          document.getElementById('front-end').setAttribute('position', positionFEArr )
+          document.getElementById('sharevalue').setAttribute('position', positionSVArr )
+          document.getElementById('react-rocket').setAttribute('position', positionRRArr )
+          document.getElementById('react').setAttribute('position', positionRArr )
+          document.getElementById('scene').setAttribute('background', `color: rgb(${colorR}, ${colorG}, ${colorB});`);
+        } else {
+          console.log("door naar stage 2");
+        }
+      });
+    </script>
+  </body>
+</html>
