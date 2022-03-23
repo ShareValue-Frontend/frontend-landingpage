@@ -1,0 +1,24 @@
+{
+  "name": "front-end-page",
+  "version": "1.0.0",
+  "description": "Frontend page experiment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sembo199/front-end-page.git"
+  },
+  "keywords": [],
+  "author": "Sem Ekkelboom <sem.ekkelboom@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sembo199/front-end-page/issues"
+  },
+  "homepage": "https://github.com/sembo199/front-end-page#readme",
+  "devDependencies": {
+    "http-server": "^14.1.0"
+  }
+}
