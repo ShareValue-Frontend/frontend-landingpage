@@ -23,6 +23,7 @@ export default {
   data() {
     return {
       scrollPage: false,
+      animationScrollSpeed: 0.075,
       frontEnd: {
         x: 20.5,
         y: 10.7,
@@ -56,6 +57,9 @@ export default {
     let colorR = 255;
     let colorG = 231;
     let colorB = 66;
+    let jsR = 255;
+    let jsG = 231;
+    let jsB = 66;
     let reactR = 97;
     let reactG = 218;
     let reactB = 251;
@@ -68,25 +72,29 @@ export default {
 
       if (!this.scrollPage) {
         let delta = ((e.deltaY || -e.wheelDelta || e.detail) >> 10) || 1;
-        delta = delta * (-300);
+        delta = delta * -1;
+
+        console.log(delta);
         
-        this.frontEnd.y -= 0.05;
-        this.sharevalue.y -= 0.05;
-  
-        this.rocket.y += 0.05;
-        this.rocket.x += 0.05;
-  
-        if (this.reactRocket.y > 10.7) {
-          this.reactRocket.y -= 0.05;
+        if (delta === -1 || (delta === 1 && this.frontEnd.y <= (10.7 - this.animationScrollSpeed))) {
+          this.frontEnd.y += (this.animationScrollSpeed * delta);
+          this.sharevalue.y += (this.animationScrollSpeed * delta);
         }
-        if (this.react.y > 9.5) {
-          this.react.y -= 0.05;
+  
+        this.rocket.y -= (this.animationScrollSpeed * delta);
+        this.rocket.x -= (this.animationScrollSpeed * delta);
+  
+        if (this.reactRocket.y > 10.7 || delta === 1) {
+          this.reactRocket.y += (this.animationScrollSpeed * delta);
+        }
+        if (this.react.y > 9.5 || delta === 1) {
+          this.react.y += (this.animationScrollSpeed * delta);
         }
         // If rocket passed, continue to rest of the page
         if (this.rocket.y > 16) {
           this.$emit('animationDone');
         }
-        if (!reactPassed) {
+        if (!reactPassed && delta === -1) {
           if (colorR !== reactR) {
             colorR -= 1;
           }
@@ -102,6 +110,22 @@ export default {
               reactPassed = true;
             }
             document.getElementById('scene').setAttribute('background', `color: rgb(${colorR}, ${colorG}, ${colorB});`);
+        } else if (delta === 1) {
+          if (window.scrollY === 0) {
+            this.$emit('animationResumed');
+          }
+          reactPassed = false;
+          console.log('Delta is 1');
+          if (colorR !== jsR) {
+            colorR += 1;
+          }
+          if (colorG !== jsG) {
+            colorG += 1;
+          }
+          if (colorB !== jsB) {
+            colorB -= 1;
+          }
+          document.getElementById('scene').setAttribute('background', `color: rgb(${colorR}, ${colorG}, ${colorB});`);
         } else {
           console.log("door naar stage 2");
         }

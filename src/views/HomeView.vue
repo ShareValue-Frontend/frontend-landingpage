@@ -1,5 +1,5 @@
 <template>
-  <TheScene @animationDone="allowScroll = true" />
+  <TheScene @animationDone="allowScroll = true" @animationResumed="allowScroll = false" />
   <div v-show="allowScroll">
     <TheTeam />
   </div>
