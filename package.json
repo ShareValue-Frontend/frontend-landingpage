@@ -1,24 +1,22 @@
 {
-  "name": "front-end-page",
-  "version": "1.0.0",
-  "description": "Frontend page experiment",
-  "main": "index.js",
+  "name": "sv-front-end",
+  "version": "0.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx http-server"
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview --port 5050",
+    "typecheck": "vue-tsc --noEmit"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sembo199/front-end-page.git"
+  "dependencies": {
+    "vue": "^3.2.31",
+    "vue-router": "^4.0.12"
   },
-  "keywords": [],
-  "author": "Sem Ekkelboom <sem.ekkelboom@gmail.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sembo199/front-end-page/issues"
-  },
-  "homepage": "https://github.com/sembo199/front-end-page#readme",
   "devDependencies": {
-    "http-server": "^14.1.0"
+    "@types/node": "^16.11.25",
+    "@vitejs/plugin-vue": "^2.2.2",
+    "@vue/tsconfig": "^0.1.3",
+    "typescript": "~4.5.5",
+    "vite": "^2.8.4",
+    "vue-tsc": "^0.31.4"
   }
 }
