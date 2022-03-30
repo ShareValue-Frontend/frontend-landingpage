@@ -1,0 +1,11 @@
+Model Information:
+* title:	Boxing Glove 3D-scan by CreativeTools
+* source:	https://sketchfab.com/3d-models/boxing-glove-3d-scan-by-creativetools-c46261e951c34455bba5f1cc6dbea076
+* author:	CreativeTools (https://sketchfab.com/creativetools)
+
+Model License:
+* license type:	CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)
+* requirements:	Author must be credited. Modified versions must have the same license. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Boxing Glove 3D-scan by CreativeTools" (https://sketchfab.com/3d-models/boxing-glove-3d-scan-by-creativetools-c46261e951c34455bba5f1cc6dbea076) by CreativeTools (https://sketchfab.com/creativetools) licensed under CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)
