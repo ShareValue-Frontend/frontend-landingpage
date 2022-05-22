@@ -26,6 +26,8 @@
 
 <script lang="ts">
 export default {
+  name: 'TheSene',
+  emits: ['animationDone', 'animationResumed'],
   data() {
     return {
       scrollPage: false,
@@ -68,7 +70,6 @@ export default {
       },
     }
   },
-  emits: ['animationDone', 'animationResumed'],
   methods: {},
   mounted() {
     let colorR = 255;
@@ -195,7 +196,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
+
 #scene {
   width: 100vw;
   height: 100vh;

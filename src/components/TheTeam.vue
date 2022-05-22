@@ -1,9 +1,9 @@
 <template>
   <div class="team">
-    <h2>{{'<'}} Leer ons team kennen {{'/>'}}</h2>
+    <h2>Leer ons team kennen</h2>
 
     <div class="employees">
-      <div class="employee" v-for="employee in employees">
+      <div class="employee" v-for="(employee, idx) in employees" :key="idx">
         <img :src="employee.image" :alt="employee.name" />
       </div>
     </div>
@@ -13,7 +13,7 @@
 <script>
 export default {
   name: 'TheTeam',
-  data() {
+  setup() {
     return {
       employees: [
         {name: 'Sem', image: 'https://www.sharevalue.nl/images/sharevalue/employees/Sem.jpg' },
@@ -26,7 +26,8 @@ export default {
 }
 </script>
 
-<style type="css">
+<style scoped lang="scss">
+
 .team {
   padding: 7rem;
   background-color: #f7df1e;
@@ -36,20 +37,16 @@ export default {
 .employees {
   display: flex;
   justify-content: space-between;
+  .employee {
+    width: 16rem;
+    height: 16rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 8px solid #121212;
+  }
 }
 
-.employee {
-  width: 16rem;
-  height: 16rem;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  border: 8px solid #121212;
-}
-
-.employee image {
-
-}
 </style>
