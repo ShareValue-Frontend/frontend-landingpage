@@ -48,10 +48,10 @@ export default {
 }
 
 .code-quote {
-  padding: 7rem;
+  padding: 7vw;
   background-color: #000;
   width: 100vw;
-  font-size: 40px;
+  font-size: 3vw;
   .quote-wrapper {
     display: flex;
     justify-content: center;
