@@ -1,14 +1,19 @@
 <template>
   <div class="team">
-    <h2>Leer ons team kennen</h2>
-
-    <div class="employees">
-      <div v-for="(employee, idx) in employees" :key="idx">
-        <div class="employee">
-          <img :src="employee.image" :alt="employee.name" />
-        </div>
-        <div class="employee-name-tag" >
-          <p v-text="['<', employee.name, '/>'].join('')" />
+    <div class="team-image-wrapper">
+      <div 
+        v-for="(image, idx) in images" 
+        :key="idx" 
+        :class="['col', image.size].join('-')"> 
+        <div 
+          class="image" 
+          :style="{
+            backgroundImage: 'url(' + image.image + ')',
+            backgroundPositionY: image.offset + 'px',
+            }"
+          >
+          <div class="image-overlay">
+          </div>
         </div>
       </div>
     </div>
@@ -20,12 +25,19 @@ export default {
   name: 'TheTeam',
   setup() {
     return {
-      employees: [
-        {name: 'Sem', image: 'https://www.sharevalue.nl/images/sharevalue/employees/Sem.jpg' },
-        {name: 'Wietze', image: 'https://www.sharevalue.nl/images/sharevalue/employees/Wietze.jpg'},
-        {name: 'Johan', image: 'https://www.sharevalue.nl/images/sharevalue/employees/Johan.jpg'},
-        {name: 'Rudy', image: 'https://www.sharevalue.nl/images/sharevalue/employees/Rudy.jpg'},
-        {name: 'Marwan', image: 'https://www.sharevalue.nl/images/sharevalue/employees/Marwan.jpg'},
+      images: [
+        {label: 'Sem', size: '20',offset: -80, image: 'https://www.sharevalue.nl/images/sharevalue/employees/Sem.jpg',},
+        {label: 'Team building', size: '40',offset: 0, image: './src/assets/img/team_3.jpg',},
+        {label: 'Wietze', size: '20',offset: -80, image: 'https://www.sharevalue.nl/images/sharevalue/employees/Wietze.jpg'},
+        {label: 'Food', size: '20',offset: 0, image: './src/assets/img/food_1.jpg'},
+        {label: 'Team building', size: '40',offset: 0, image: './src/assets/img/team_2.jpg',},
+        {label: 'Rudy', size: '20',offset: -80, image: 'https://www.sharevalue.nl/images/sharevalue/employees/Rudy.jpg'},
+        {label: 'Team building', size: '20',offset: 0, image: './src/assets/img/fun_3.jpg',},
+        {label: 'Johan', size: '20',offset: -80, image: 'https://www.sharevalue.nl/images/sharevalue/employees/Johan.jpg'},
+        {label: 'Team building', size: '20',offset: 0, image: './src/assets/img/fun_1.jpg',},
+        {label: 'Marwan', size: '20',offset: -80, image: 'https://www.sharevalue.nl/images/sharevalue/employees/Marwan.jpg'},
+        {label: 'Team building', size: '40',offset: 0, image: './src/assets/img/team_4.jpg',},
+        {label: 'Raymon', size: '20',offset: -80, image: 'https://www.sharevalue.nl/images/sharevalue/employees/Raymon.jpg'},
       ]
     };
   },
@@ -35,61 +47,72 @@ export default {
 <style scoped lang="scss">
 
 .team {
-  padding: 7vw;
+  padding: 7vw 0;
   width: 100vw;
+  background: #38382e;
+  .team-image-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    .col-20{
+      width: 20%;
+    }
+    .col-40{
+      width: 40%;
+    }
+    .image {
+      background: #fff;
+      height: 300px;
+      background-size: cover;
+      border: 5px solid #38382e;
+      .image-overlay {
+        background: #000;
+        opacity: 0.0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
 }
 
-.employees {
+.row {
+  display: -ms-flexbox; /* IE10 */
   display: flex;
-  justify-content: space-between;
-  .employee {
-    width: 18rem;
-    height: 16rem;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;;
-    margin: 10px;
-    border: 1px solid #CCC;
-    -webkit-box-shadow: 0px 10px 13px -7px #121212, 5px 5px 15px 5px rgba(0,0,0,0); 
-    box-shadow: 0px 10px 13px -7px #121212, 5px 5px 15px 5px rgba(0,0,0,0);
-  }
-  .employee-name-tag {
-    position: relative;
-    bottom: 20px;
-    width: 18rem;
-    background: #121212;
-    color: #FFE742;
-    text-align: center;
-    padding: 2px 10px;
-    font-size: 1.1vw;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin: 0 10px;
-  }
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
 }
-@media screen and (max-width: 1280px) {
-  .employees {
-   .employee-name-tag {
-      font-size: 2vw;
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 20%; /* IE10 */
+  flex: 20%;
+  max-width: 20%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .team {
+    .team-image-wrapper {
+      .col-20, .col-40 {
+        width: 100%;
+      }
     }
   }
 }
-@media screen and (max-width: 992px) {
-  .employees {
-   flex-wrap: wrap;
-   .employee-name-tag {
-      font-size: 3vw;
-    }
-  }
-}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
-  .employees {
-   flex-wrap: wrap;
-   .employee-name-tag {
-      font-size: 5vw;
-    }
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
   }
 }
 </style>

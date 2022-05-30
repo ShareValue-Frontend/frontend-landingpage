@@ -1,7 +1,7 @@
 <template>
   <div class="team">
     <div class="title">
-      <h2 v-text="['< Our frontend deck />'].join('')" />
+      <h2 v-text="['< OurFrontendDeck />'].join('')" />
     </div>
     <div class="employees">
       <div v-for="(employee, idx) in employees" :key="idx"> 
@@ -143,12 +143,13 @@ export default {
 .team {
   padding: 7vw;
   width: 100vw;
-  background: #e3e3e37d;
+  background: #38382e;
   .title {
     display: flex;
     justify-content: center;
       h2 {
         font-size: 3vw;
+        color:#FFF;
       }
     }
   .employees {

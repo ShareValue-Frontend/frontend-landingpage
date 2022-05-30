@@ -3,8 +3,9 @@
   <TheScene @animationDone="allowScroll = true" @animationResumed="allowScroll = false" />
   <div v-show="!allowScroll">
     <TheQuote />
-    <TheTeamDeck />
     <TheTeam />
+    <TheTeamDeck />
+    <TheInformation />
   </div>
 </div>
 </template>
@@ -13,6 +14,7 @@
 import TheScene from '@/components/TheScene.vue'
 import TheTeamDeck from '@/components/TheTeamDeck.vue'
 import TheTeam from '@/components/TheTeam.vue'
+import TheInformation from '@/components/TheInformation.vue'
 import TheQuote from '@/components/TheQuote.vue'
 
 export default {
@@ -24,8 +26,9 @@ export default {
   },
   components: {
     TheScene,
-    TheTeam,
+    TheInformation,
     TheTeamDeck,
+    TheTeam,
     TheQuote,
   },
 }
