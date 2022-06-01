@@ -20,15 +20,33 @@
         </p>
       </transition>
     </div>
+    <div class="logo-wrapper">
+      <div class="logo">
+        <React/>
+      </div>
+      <div class="logo">
+        <Vue/>
+      </div>
+      <div class="logo">
+        <Angular/>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { ref } from "vue";
+import React from '@/components/icons/iconReact.vue'
+import Vue from '@/components/icons/iconVue.vue'
+import Angular from '@/components/icons/iconAngular.vue'
 
 export default {
-
   name: 'theQuote',
+    components: {
+    React,
+    Vue,
+    Angular,
+  },
   setup() {
     const show = ref(false);
     return {
@@ -74,6 +92,14 @@ export default {
       .location {
         color: #C3602C;
       }
+    }
+  }
+  .logo-wrapper{
+    display: flex;
+    justify-content: center;
+    .logo {
+      width: 6vw;
+      margin: 40px 30px 0;
     }
   }
 }

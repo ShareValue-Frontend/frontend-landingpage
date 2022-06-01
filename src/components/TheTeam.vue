@@ -7,12 +7,15 @@
         :class="['col', image.size].join('-')"> 
         <div 
           class="image" 
-          :style="{
-            backgroundImage: 'url(' + image.image + ')',
-            backgroundPositionY: image.offset + 'px',
-            }"
+          :class="{'offset-negative': image.offset }"
+          :style="{backgroundImage: 'url(' + image.image + ')'}"
           >
-          <div class="image-overlay">
+          <div 
+            v-if="image.overlay"
+            class="image-overlay">
+            <div class="label">
+              {{ image.label }}
+            </div>
           </div>
         </div>
       </div>
@@ -26,18 +29,90 @@ export default {
   setup() {
     return {
       images: [
-        {label: 'Sem', size: '20',offset: -80, image: 'https://www.sharevalue.nl/images/sharevalue/employees/Sem.jpg',},
-        {label: 'Team building', size: '40',offset: 0, image: './src/assets/img/team_3.jpg',},
-        {label: 'Wietze', size: '20',offset: -80, image: 'https://www.sharevalue.nl/images/sharevalue/employees/Wietze.jpg'},
-        {label: 'Food', size: '20',offset: 0, image: './src/assets/img/food_1.jpg'},
-        {label: 'Team building', size: '40',offset: 0, image: './src/assets/img/team_2.jpg',},
-        {label: 'Rudy', size: '20',offset: -80, image: 'https://www.sharevalue.nl/images/sharevalue/employees/Rudy.jpg'},
-        {label: 'Team building', size: '20',offset: 0, image: './src/assets/img/fun_3.jpg',},
-        {label: 'Johan', size: '20',offset: -80, image: 'https://www.sharevalue.nl/images/sharevalue/employees/Johan.jpg'},
-        {label: 'Team building', size: '20',offset: 0, image: './src/assets/img/fun_1.jpg',},
-        {label: 'Marwan', size: '20',offset: -80, image: 'https://www.sharevalue.nl/images/sharevalue/employees/Marwan.jpg'},
-        {label: 'Team building', size: '40',offset: 0, image: './src/assets/img/team_4.jpg',},
-        {label: 'Raymon', size: '20',offset: -80, image: 'https://www.sharevalue.nl/images/sharevalue/employees/Raymon.jpg'},
+        {
+          label: 'Sem',
+          size: '20',
+          offset: true,
+          overlay: true,
+          image: 'https://www.sharevalue.nl/images/sharevalue/employees/Sem.jpg',
+        },
+        {
+          label: 'Team building',
+          size: '40',
+          offset: false,
+          overlay: false,
+          image: './src/assets/img/team_3.jpg',
+        },
+        {
+          label: 'Wietze',
+          size: '20',
+          offset: true,
+          overlay: true,
+          image: 'https://www.sharevalue.nl/images/sharevalue/employees/Wietze.jpg'
+        },
+        {
+          label: 'Food',
+          size: '20',
+          offset: false,
+          overlay: false,
+          image: './src/assets/img/food_1.jpg'
+        },
+        {
+          label: 'Team building',
+          size: '40',
+          offset: false,
+          overlay: false,
+          image: './src/assets/img/team_2.jpg',
+        },
+        {
+          label: 'Rudy',
+          size: '20',
+          offset: true,
+          overlay: true,
+          image: 'https://www.sharevalue.nl/images/sharevalue/employees/Rudy.jpg'
+        },
+        {
+          label: 'Team building',
+          size: '20',
+          offset: false,
+          overlay: false,
+          image: './src/assets/img/fun_3.jpg',
+        },
+        {
+          label: 'Johan',
+          size: '20',
+          offset: true,
+          overlay: true,
+          image: 'https://www.sharevalue.nl/images/sharevalue/employees/Johan.jpg'
+        },
+        {
+          label: 'Team building',
+          size: '20',
+          offset: false,
+          overlay: false,
+          image: './src/assets/img/fun_1.jpg',
+        },
+        {
+          label: 'Marwan',
+          size: '20',
+          offset: true,
+          overlay: true,
+          image: 'https://www.sharevalue.nl/images/sharevalue/employees/Marwan.jpg'
+        },
+        {
+          label: 'Team building',
+          size: '40',
+          offset: false,
+          overlay: false,
+          image: './src/assets/img/team_4.jpg',
+        },
+        {
+          label: 'Raymon',
+          size: '20',
+          offset: true,
+          overlay: true,
+          image: 'https://www.sharevalue.nl/images/sharevalue/employees/Raymon.jpg'
+        },
       ]
     };
   },
@@ -47,7 +122,7 @@ export default {
 <style scoped lang="scss">
 
 .team {
-  padding: 7vw 0;
+  padding:0;
   width: 100vw;
   background: #38382e;
   .team-image-wrapper {
@@ -64,11 +139,24 @@ export default {
       height: 300px;
       background-size: cover;
       border: 5px solid #38382e;
+      &.offset-negative {
+        background-position-y: -80px;
+      }
       .image-overlay {
         background: #000;
         opacity: 0.0;
         width: 100%;
         height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        font-size: 3vw;
+        .label {
+          padding: 10px;
+        }
+        &:hover {
+          opacity: 0.5;
+        }
       }
     }
   }
@@ -95,19 +183,52 @@ export default {
   vertical-align: middle;
   width: 100%;
 }
-
-/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 1680px) {
+  .team {
+    .team-image-wrapper {
+      .image {
+        &.offset-negative {
+          background-repeat-x: no-repeat;
+          background-position-y: -30px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1400px) {
+  .team {
+    .team-image-wrapper {
+      .image {
+        background-size: cover;
+        &.offset-negative {
+          background-repeat-x: no-repeat;
+          background-position-y: 0px;
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 800px) {
   .team {
     .team-image-wrapper {
       .col-20, .col-40 {
         width: 100%;
       }
+      .image {
+        background-size: cover;
+        &.offset-negative {
+          background-size: auto;
+          background-repeat-x: no-repeat;
+          background-position-y: 0px;
+        }
+        .image-overlay {
+          font-size: 8vw;
+        }
+      }
     }
   }
 }
 
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
   .column {
     -ms-flex: 100%;
