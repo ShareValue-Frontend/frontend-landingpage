@@ -7,7 +7,7 @@
         <span class="method">@import</span> {&nbsp;
         <span class="variable">Team, Events</span>&nbsp;}&nbsp;
         <span class="method">from </span>
-        <span class="location">"./ShareValue/Front-end/People"</span>
+        <span class="location">"@/ShareValue/Front-end/People"</span>
       </p>
     </div>
   </div>
@@ -42,7 +42,7 @@ export default {
   background-color: #d6bf28;
   color: #2C3E50;
   width: 100vw;
-  font-size: 3vw;
+  font-size: 2.5vw;
   .quote-wrapper {
     display: flex;
     justify-content: center;

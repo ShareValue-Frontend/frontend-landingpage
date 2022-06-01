@@ -16,7 +16,7 @@
           <span class="method">@import</span> {&nbsp;
           <span class="variable">jobs</span>&nbsp;}&nbsp;
           <span class="method">from </span>
-          <span class="location">"./ShareValue/Front-end"</span>
+          <span class="location">"@/ShareValue/Front-end"</span>
         </p>
       </transition>
     </div>
