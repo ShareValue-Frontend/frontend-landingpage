@@ -6,6 +6,7 @@
     <TheInformation />
     <TheTeamQuote />
     <TheTeam />
+    <TheTheExpression />
   </div>
 </div>
 </template>
@@ -16,6 +17,7 @@ import TheTeam from '@/components/TheTeam.vue'
 import TheInformation from '@/components/TheInformation.vue'
 import TheQuote from '@/components/TheQuote.vue'
 import TheTeamQuote from '@/components/TheTeamQuote.vue'
+import TheTheExpression from '@/components/TheExpression.vue'
 
 export default {
   name: 'HomeView',
@@ -30,6 +32,7 @@ export default {
     TheTeam,
     TheQuote,
     TheTeamQuote,
+    TheTheExpression,
   },
 }
 </script>
