@@ -39,7 +39,7 @@ export default {
 
 .code-team-quote {
   padding: 2vw 7vw;
-  background-color: #d6bf28;
+  background-color: #000;
   color: #2C3E50;
   width: 100vw;
   font-size: 2.5vw;
@@ -47,23 +47,23 @@ export default {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    .constructor {
-      color: #2C3E50;;
+        .constructor {
+      color: #fff;
       cursor: pointer;
       .code {
-        color: #2C3E50;;
+        color: #2452AD;
       }
       .variable {
-        color: #2C3E50;;;
+        color: #44A9F7;
       }
       .function {
-        color: #2C3E50;;
+        color: #E1E1A1;
       }
       .method {
-        color: #2C3E50;;
+        color: #b578A3;
       }
       .location {
-        color: #2C3E50;;
+        color: #C3602C;
       }
     }
   }

@@ -1,95 +1,99 @@
 <template>
   <div class="expressions">
-    <div class="expressions-wrapper">
-      <div class="developer-talk">
-        <h2 v-html="developer" />
-        <p v-html="developerTalk" />
-      </div>
-      <div class="developer-image">
-        <div class="employees">
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <div v-for="(employee, idx) in employees" :key="idx"> 
-                  <div 
-                    class="card-logo-top-wrapper"
-                    :class="['card', idx].join('-')">
-                    <div 
-                      class="card-logo primary"
-                      :class="employee.primaryFramework">
-                      
-                    </div>
-                    <div 
-                      class="card-logo secondary" 
-                      :class="employee.secondaryFramework">
-                      
-                    </div>
-                    <div 
-                      class="card-logo tertiaire" 
-                      :class="employee.tertiaireFramework">
-                      
-                    </div>
-                  </div>
-                  <div class="employee background">
-                  </div>
-                  <div class="card-logo-bottom-wrapper">
-                  </div>
-                  <div class="employee-card-tag" >
-                    <Card />
-                  </div>
-                </div>
-              </div>
-              <div class="flip-card-back">
-                <div v-for="(employee, idx) in employees" :key="idx"> 
-                  <div 
-                    class="card-logo-top-wrapper"
-                    :class="['card', idx].join('-')">
-                    <div 
-                      class="card-logo primary"
-                      :class="employee.primaryFramework">
-                      <CardLogo :logo="employee.primaryFramework" />
-                    </div>
-                    <div 
-                      class="card-logo secondary" 
-                      :class="employee.secondaryFramework">
-                      <CardLogo :logo="employee.secondaryFramework" />
-                    </div>
-                    <div 
-                      class="card-logo tertiaire" 
-                      :class="employee.tertiaireFramework">
-                      <CardLogo :logo="employee.tertiaireFramework" />
+    <div class="hero-block hero-block--main">
+      <div class="hero-block__cta">
+        <div class="expressions-wrapper">
+          <div class="developer-talk">
+            <!-- <h2 v-html="developerQuote" /> -->
+            <p v-html="developerTalk" />
+          </div>
+          <div class="developer-image">
+            <div class="employees">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <div v-for="(employee, idx) in employees" :key="idx"> 
+                      <div 
+                        class="card-logo-top-wrapper"
+                        :class="['card', idx].join('-')">
+                        <div 
+                          class="card-logo primary"
+                          :class="employee.primaryFramework">
+                          
+                        </div>
+                        <div 
+                          class="card-logo secondary" 
+                          :class="employee.secondaryFramework">
+                          
+                        </div>
+                        <div 
+                          class="card-logo tertiaire" 
+                          :class="employee.tertiaireFramework">
+                          
+                        </div>
+                      </div>
+                      <div class="employee background">
+                      </div>
+                      <div class="card-logo-bottom-wrapper">
+                      </div>
+                      <div class="employee-card-tag" >
+                        <Question />
+                      </div>
                     </div>
                   </div>
-                  <div class="employee">
-                    <img 
-                      :src="employee.image ? employee.image : './src/assets/img/superwoman.jpg'" 
-                      :alt="employee.name" 
-                      :style="{left: employee.position + 'px'} " />
-                    <img 
-                      class="mirror" 
-                      :src="employee.image ? employee.image : './src/assets/img/superman.jpg'" 
-                      :alt="employee.name" 
-                      :style="{right: employee.position + 'px'} "  />
-                  </div>
-                  <div class="card-logo-bottom-wrapper">
-                    <div 
-                      class="card-logo primary"
-                      :class="employee.primaryFramework">
-                      <CardLogo :logo="employee.primaryFramework" />
+                  <div class="flip-card-back">
+                    <div v-for="(employee, idx) in employees" :key="idx"> 
+                      <div 
+                        class="card-logo-top-wrapper"
+                        :class="['card', idx].join('-')">
+                        <div 
+                          class="card-logo primary"
+                          :class="employee.primaryFramework">
+                          <CardLogo :logo="employee.primaryFramework" />
+                        </div>
+                        <div 
+                          class="card-logo secondary" 
+                          :class="employee.secondaryFramework">
+                          <CardLogo :logo="employee.secondaryFramework" />
+                        </div>
+                        <div 
+                          class="card-logo tertiaire" 
+                          :class="employee.tertiaireFramework">
+                          <CardLogo :logo="employee.tertiaireFramework" />
+                        </div>
+                      </div>
+                      <div class="employee">
+                        <img 
+                          :src="employee.image ? employee.image : './src/assets/img/superwoman.jpg'" 
+                          :alt="employee.name" 
+                          :style="{left: employee.position + 'px'} " />
+                        <img 
+                          class="mirror" 
+                          :src="employee.image ? employee.image : './src/assets/img/superman.jpg'" 
+                          :alt="employee.name" 
+                          :style="{right: employee.position + 'px'} "  />
+                      </div>
+                      <div class="card-logo-bottom-wrapper">
+                        <div 
+                          class="card-logo primary"
+                          :class="employee.primaryFramework">
+                          <CardLogo :logo="employee.primaryFramework" />
+                        </div>
+                        <div 
+                          class="card-logo secondary"
+                          :class="employee.secondaryFramework">
+                          <CardLogo :logo="employee.secondaryFramework" />
+                        </div>
+                        <div 
+                          class="card-logo tertiaire" 
+                          :class="employee.tertiaireFramework">
+                          <CardLogo :logo="employee.tertiaireFramework" />
+                        </div>
+                      </div>
+                      <div class="employee-name-tag" >
+                        <p v-text="['', employee.name, ''].join('')" />
+                      </div>
                     </div>
-                    <div 
-                      class="card-logo secondary"
-                      :class="employee.secondaryFramework">
-                      <CardLogo :logo="employee.secondaryFramework" />
-                    </div>
-                    <div 
-                      class="card-logo tertiaire" 
-                      :class="employee.tertiaireFramework">
-                      <CardLogo :logo="employee.tertiaireFramework" />
-                    </div>
-                  </div>
-                  <div class="employee-name-tag" >
-                    <p v-text="['', employee.name, ''].join('')" />
                   </div>
                 </div>
               </div>
@@ -105,7 +109,7 @@
 import React from '@/components/icons/iconReact.vue'
 import Vue from '@/components/icons/iconVue.vue'
 import Angular from '@/components/icons/iconAngular.vue'
-import Card from '@/components/icons/iconBlackJack.vue'
+import Question from '@/components/icons/iconQuestion.vue'
 import CardLogo from '@/components/shared/cardLogo.vue'
 
 export default {
@@ -114,15 +118,17 @@ export default {
     React,
     Vue,
     Angular,
-    Card,
+    Question,
     CardLogo,
   },
   setup() {
     const developer = "Developer: <strong>Sem</strong>"
+    const developerQuote = "let quote = {'Ik ben blij dat ik hier terecht gekomen ben.'}"
     const developerTalk = "Een team waar je op kan bouwen. Dát is ShareValue voor mij. Een gezellige groep collega’s waar je altijd op terug kunt vallen én plezier mee kunt hebben. Met daarnaast leuke en afwisselende opdrachten en een hoop ruimte voor groei. Zo krijg ik voldoende uren om cursussen te volgen om alles te leren over de nieuwste technieken. Deze opgedane kennis kan ik direct toepassen bij de opdrachtgever. En van die ervaringen groei je dan ook weer! Ik voel me goed thuis bij ShareValue en ben blij dat ik hier terecht gekomen ben."
     return {
       developer,
       developerTalk,
+      developerQuote,
       employees: [
         {
         	name: 'Sem',
@@ -190,20 +196,62 @@ export default {
   padding: 7vw;
   width: 100vw;
   background: #F3912B;
+  background: linear-gradient(to right,#F3912B 55%,#FACFAE);
+    .hero-block {
+    border-radius: 0.3125rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    max-width: 36.875rem;
+    margin-left: 2.5rem;
+    &:before {
+      border-radius: 0.3125rem;
+      -webkit-clip-path: polygon(0 0,100% 0,94% 100%,0% 100%);
+      clip-path: polygon(0 0,100% 0,94% 100%,0% 100%);
+      content: " ";
+      display: block;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      mix-blend-mode: multiply;
+    }
+    .hero-block__cta {
+      p {
+        padding: 0 2rem;
+        max-width: 97%;
+      }
+    }
+  }
+  .hero-block--main {
+    height: 32rem;
+    min-width: 94%;
+    &:before {
+      background: #FFE742;
+    }
+  } 
   // background: #F6A265;
   .expressions-wrapper {
     display: flex;
     flex-wrap: wrap;
     .developer-talk {
-      width: 55VW;
+      width: 50VW;
+      h2 {
+        font-size: 2vw;
+        color: #FFF;
+        padding-bottom: 27px
+      }
       p {
         font-size: 1.5vw;
         color: #FFF;
       } 
     }.developer-image {
       width: 30VW;
+      position: relative;
+      bottom: 60px;;
       .flip-card {
-        background-color: #F3912B;
         width: 13rem;
         height: 25rem;
         perspective: 1000px;
@@ -316,7 +364,8 @@ export default {
         }
         .employee-name-tag {
           position: relative;
-          bottom: 216px;
+          bottom: 275px;
+          left: 25px;
           width: 9rem;
           background: #121212;
           color: #FFE742;
@@ -329,12 +378,17 @@ export default {
         }
         .employee-card-tag {
           position: relative;
-          bottom: 317px;
-          left: 17px;
+          bottom: 367px;
+          right: 25px;
           width: 14rem;
           text-align: center;
           padding: 4px 10px;
           margin: 0 auto;
+          color: #fff;
+          opacity: 0.9;
+          .bi-question-lg {
+            filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.6));
+          }
         }
       }
     }
