@@ -12,26 +12,25 @@ export interface ObjectPosition {
 
 export function vueSlide(
 	componentScope: any,
-	vueText: ObjectPosition,
-	vueImage: ObjectPosition,
-	scrollSpeed: number,
 	color: ColorObject,
 	vueColor: ColorObject,
 	vuePassed: boolean,
 	delta: number
 ) {
 	/** Scroll fase 3: ANGULAR => VUE */
-	if (vueText.y > 11.4 || delta === 1) {
-		vueText.y += scrollSpeed * delta
+	if (componentScope.vueText.y > 11.4 || delta === 1) {
+		componentScope.vueText.y += componentScope.animationScrollSpeed * delta
 	}
-	if (vueText.y < 15 || delta === 1) {
-		componentScope.angularText.y += scrollSpeed * delta
-		componentScope.angular.y += scrollSpeed * delta
+	if (componentScope.vueText.y < 15 || delta === 1) {
+		componentScope.angularText.y += componentScope.animationScrollSpeed * delta
+		componentScope.angular.y += componentScope.animationScrollSpeed * delta
 	}
-	if (vueImage.y > 9.5 || delta === 1) {
-		vueImage.y += scrollSpeed * delta
+	if (componentScope.vueImage.y > 9.5 || delta === 1) {
+		componentScope.vueImage.y += componentScope.animationScrollSpeed * delta
 	}
 	if (!vuePassed && delta === -1) {
+		console.info('vuePassed: ', vuePassed)
+		console.info('color: ', color)
 		if (color?.r !== vueColor?.r) {
 			color.r -= 1
 		}
@@ -49,33 +48,31 @@ export function vueSlide(
 			.getElementById('scene')
 			.setAttribute('background', `color: rgb(${color?.r}, ${color?.g}, ${color?.b});`)
 	}
-	if (vuePassed && vueImage.y <= 9.5) {
+	if (vuePassed && componentScope.vueImage.y <= 9.5) {
 		componentScope.scrollFase = 4
 		document
 			.getElementById('scene')
 			.setAttribute('background', `color: rgb(${vueColor?.r}, ${vueColor?.g}, ${vueColor?.b});`)
 	}
 }
+
 export function angularSlide(
 	componentScope: any,
-	angular: ObjectPosition,
-	angularText: ObjectPosition,
-	scrollSpeed: number,
 	color: ColorObject,
 	angularColor: ColorObject,
 	angularPassed: boolean,
 	delta: number
 ) {
 	/** Scroll fase 2: REACT => ANGULAR */
-	if (angularText.y > 11.4 || delta === 1) {
-		angularText.y += scrollSpeed * delta
+	if (componentScope.angularText.y > 11.4 || delta === 1) {
+		componentScope.angularText.y += componentScope.animationScrollSpeed * delta
 	}
-	if (angularText.y < 15 || delta === 1) {
-		componentScope.react.y += scrollSpeed * delta
-		componentScope.reactRocket.y += scrollSpeed * delta
+	if (componentScope.angularText.y < 15 || delta === 1) {
+		componentScope.react.y += componentScope.animationScrollSpeed * delta
+		componentScope.reactRocket.y += componentScope.animationScrollSpeed * delta
 	}
-	if (angular.y > 9.5 || delta === 1) {
-		angular.y += scrollSpeed * delta
+	if (componentScope.angular.y > 9.5 || delta === 1) {
+		componentScope.angular.y += componentScope.animationScrollSpeed * delta
 	}
 	if (!angularPassed && delta === -1) {
 		if (color.r !== angularColor?.r) {
@@ -92,37 +89,33 @@ export function angularSlide(
 		}
 		document.getElementById('scene').setAttribute('background', `color: rgb(${color.r}, ${color.g}, ${color.b});`)
 	}
-	if (angularPassed && angular.y <= 9.5) {
+	if (angularPassed && componentScope.angular.y <= 9.5) {
 		componentScope.scrollFase = 3
 	}
 }
 
 export function reactSlide(
 	componentScope: any,
-	rocket: ObjectPosition,
-	reactText: ObjectPosition,
-	reactImage: ObjectPosition,
-	scrollSpeed: number,
 	color: ColorObject,
-    reactColor: ColorObject,
-    jsColor: ColorObject,
+	reactColor: ColorObject,
+	jsColor: ColorObject,
 	reactPassed: boolean,
 	delta: number
 ) {
 	/** Scroll fase 1: FRONTEND => REACT */
-	if (delta === -1 || (delta === 1 && componentScope.frontEnd.y <= 10.7 - scrollSpeed)) {
-		componentScope.frontEnd.y += scrollSpeed * delta
-		componentScope.sharevalue.y += scrollSpeed * delta
+	if (delta === -1 || (delta === 1 && componentScope.frontEnd.y <= 10.7 - componentScope.animationScrollSpeed)) {
+		componentScope.frontEnd.y += componentScope.animationScrollSpeed * delta
+		componentScope.sharevalue.y += componentScope.animationScrollSpeed * delta
 	}
 
-	rocket.y -= scrollSpeed * delta
-	rocket.x -= scrollSpeed * delta
+	componentScope.rocket.y -= componentScope.animationScrollSpeed * delta
+	componentScope.rocket.x -= componentScope.animationScrollSpeed * delta
 
-	if (reactText.y > 10.7 || delta === 1) {
-		reactText.y += scrollSpeed * delta
+	if (componentScope.reactRocket.y > 10.7 || delta === 1) {
+		componentScope.reactRocket.y += componentScope.animationScrollSpeed * delta
 	}
-	if (reactImage.y > 9.5 || delta === 1) {
-		reactImage.y += scrollSpeed * delta
+	if (componentScope.react.y > 9.5 || delta === 1) {
+		componentScope.react.y += componentScope.animationScrollSpeed * delta
 	}
 	if (!reactPassed && delta === -1) {
 		if (color.r !== reactColor?.r) {
@@ -142,13 +135,14 @@ export function reactSlide(
 			.setAttribute('background', `color: rgb(${color.r}, ${color.g}, ${color.b});`)
 	} else if (delta === 1) {
 		reactPassed = false
-		if (color.r !== jsColor.r) {
+		console.log('Delta is 1')
+		if (color.r !== jsColor?.r) {
 			color.r += 1
 		}
-		if (color.g !== jsColor.g) {
+		if (color.g !== jsColor?.g) {
 			color.g += 1
 		}
-		if (color.b !== jsColor.b) {
+		if (color.b !== jsColor?.b) {
 			color.b -= 1
 		}
 		document
@@ -156,7 +150,7 @@ export function reactSlide(
 			.setAttribute('background', `color: rgb(${color.r}, ${color.g}, ${color.b});`)
 	}
 	// If rocket passed and color is done, continue to rest of the page
-	if (rocket.y > 16 && reactPassed) {
+	if (componentScope.rocket.y > 16 && reactPassed) {
 		componentScope.scrollFase = 2
 	}
 }

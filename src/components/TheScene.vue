@@ -87,8 +87,7 @@
 	</a-scene>
 </template>
 
-<script lang="ts">
-import type { CreateComponentPublicInstance } from '@vue/runtime-core'
+<script>
 import { angularSlide, reactSlide, vueSlide } from './shared/aframe-slides'
 
 export default {
@@ -131,17 +130,17 @@ export default {
 			},
 			angular: {
 				x: 24.95,
-				y: 19,
+				y: 19.5,
 				z: -2
 			},
 			vueText: {
 				x: 22.25,
-				y: 20,
+				y: 19.5,
 				z: -4.6
 			},
 			vueImage: {
 				x: 24.95,
-				y: 20,
+				y: 19.5,
 				z: -2
 			},
 			color: {
@@ -153,98 +152,59 @@ export default {
 	},
 	methods: {},
 	mounted() {
-		const angularRGB = {
-			r: 221,
-			g: 27,
-			b: 22
-		}
-		const vueRGB = {
-			r: 65,
-			g: 184,
-			b: 131
-		}
-		const reactRGB = {
-			r: 97,
-			g: 218,
-			b: 251
-		}
-		const jsRGB = {
-			r: 255,
-			g: 231,
-			b: 66
-		}
-
+		const jsColor = { r: 255, g: 231, b: 66 }
+		const reactColor = { r: 97, g: 218, b: 251 }
+		const angularColor = { r: 221, g: 27, b: 22 }
+    const vuecolor = { r: 65, g: 184, b: 131 }
+    
 		let reactPassed = false
 		let angularPassed = false
-		let vuePassed = false
-		document.addEventListener('wheel', (event) => scrollLogic(event, this))
-
-    function scrollLogic(event: WheelEvent, scope: CreateComponentPublicInstance) {
-      if (event.type != 'wheel') {
-        return
+    let vuePassed = false
+    
+		document.addEventListener('wheel', e => {
+			if (e.type != 'wheel') {
+				return
 			}
-			let delta = (event.deltaY || -event.wheelDelta || event.detail) >> 10 || 1
-      delta = delta * -1
-      
+			let delta = (e.deltaY || -e.wheelDelta || e.detail) >> 10 || 1
+			delta = delta * -1
+
 			/**
 			 *
 			 * PHASE 1: REACT
 			 *
 			 */
-			if (scope.scrollFase === 1) {
-				reactSlide(
-					scope,
-					scope.rocket,
-					scope.reactRocket,
-					scope.react,
-					scope.animationScrollSpeed,
-					scope.color,
-          reactRGB,
-          jsRGB,
-					reactPassed,
-					delta
-				)
+			if (this.scrollFase === 1) {
+				reactSlide(this, this.color, reactColor, jsColor, reactPassed, delta)
 
 				/**
 				 *
 				 * PHASE 2: ANGULAR
 				 *
 				 */
-			} else if (scope.scrollFase === 2) {
-				angularSlide(
-					scope,
-					scope.angular,
-					scope.angularText,
-					scope.animationScrollSpeed,
-					scope.color,
-					angularRGB,
-					angularPassed,
-					delta
-				)
+			} else if (this.scrollFase === 2) {
+				angularSlide(this, this.color, angularColor, angularPassed, delta)
 
 				/**
 				 *
 				 * PHASE 3: VUE
 				 *
 				 */
-			} else if (scope.scrollFase === 3) {
-				vueSlide(
-					scope,
-					scope.vueText,
-					scope.vueImage,
-					scope.animationScrollSpeed,
-					scope.color,
-					vueRGB,
-					vuePassed,
-					delta
-				)
-			} else if (scope.scrollFase === 4) {
-				scope.$emit('animationDone')
+			} else if (this.scrollFase === 3) {
+				vueSlide(this, this.color, vuecolor, vuePassed, delta)
+
+				/**
+				 *
+				 * PHASE 4: Normal website
+				 *
+				 */
+			} else if (this.scrollFase === 4) {
+				this.$emit('animationDone')
 			}
+
 			if (delta === 1 && window.scrollY === 0) {
-				scope.$emit('animationResumed')
+				this.$emit('animationResumed')
 			}
-    }
+		})
 	},
 	computed: {
 		box_style() {
