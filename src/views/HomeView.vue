@@ -1,13 +1,14 @@
 <template>
 <div class="page-container">
-  <h1 style="z-index:9999;position:fixed;top:0;left:0;">{{allowScroll}}</h1>
   <TheScene @animationDone="allowScroll = true" @animationResumed="allowScroll = false" />
   <div v-show="allowScroll">
+    <TheNavbar />
     <TheQuote />
     <TheInformation />
     <TheTeamQuote />
     <TheTeam />
     <TheExpression />
+    <TheFooter />
   </div>
 </div>
 </template>
@@ -20,6 +21,8 @@ import TheInformation from '@/components/TheInformation.vue'
 import TheQuote from '@/components/TheQuote.vue'
 import TheTeamQuote from '@/components/TheTeamQuote.vue'
 import TheExpression from '@/components/TheExpression.vue'
+import TheNavbar from '@/components/TheNavbar.vue'
+import TheFooter from '@/components/TheFooter.vue'
 
 export default {
   name: 'HomeView',
@@ -30,12 +33,14 @@ export default {
     };
   },
   components: {
+    TheNavbar,
     TheScene,
     TheInformation,
     TheTeam,
     TheQuote,
     TheTeamQuote,
     TheExpression,
+    TheFooter,
   },
 }
 </script>
