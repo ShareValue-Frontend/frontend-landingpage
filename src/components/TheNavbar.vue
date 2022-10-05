@@ -2,7 +2,9 @@
 	<div class="header">
 		<nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-md">
 			<div class="container">
-				<a class="navbar-brand" href="#"> <img alt="shareValue" src="../assets/img/shareValueLogo.svg" /></a>
+				<a class="navbar-brand" href="https://www.sharevalue.nl/">
+					<img alt="shareValue" src="../assets/img/shareValueLogo.svg"
+				/></a>
 				<button
 					class="navbar-toggler"
 					type="button"
@@ -12,24 +14,38 @@
 				>
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div class="collapse navbar-collapse row align-items-md-end" id="navContent">
+				<div class="collapse navbar-collapse row g-0 align-items-md-end" id="navContent">
 					<div class="col-5">
 						<ul class="navbar-nav first-menu mr-auto">
 							<li class="nav-item dropdown">
-								<a class="nav-link nav-link-ltr dropdown-toggle" href="/expertises">Expertises</a>
+								<a
+									class="nav-link nav-link-ltr dropdown-toggle"
+									href="https://www.sharevalue.nl/expertises"
+									>Expertises</a
+								>
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="/expertises/azure">Azure</a>
-									<a class="dropdown-item" href="/expertises/dynamics-365">Dynamics 365</a>
-									<a class="dropdown-item" href="/expertises/front-end">Front-End</a>
-									<a class="dropdown-item" href="/expertises/dotnet">Microsoft .NET</a>
-									<a class="dropdown-item" href="/expertises/microsoft-365">Microsoft 365</a>
+									<a class="dropdown-item" href="https://www.sharevalue.nl/expertises/azure">Azure</a>
+									<a class="dropdown-item" href="https://www.sharevalue.nl/expertises/dynamics-365"
+										>Dynamics 365</a
+									>
+									<a class="dropdown-item" href="https://www.sharevalue.nl/expertises/front-end"
+										>Front-End</a
+									>
+									<a class="dropdown-item" href="https://www.sharevalue.nl/expertises/dotnet"
+										>Microsoft .NET</a
+									>
+									<a class="dropdown-item" href="https://www.sharevalue.nl/expertises/microsoft-365"
+										>Microsoft 365</a
+									>
 								</div>
 							</li>
 							<li class="nav-item active">
-								<a class="nav-link nav-link-ltr" href="/klantcases">Klantcases</a>
+								<a class="nav-link nav-link-ltr" href="https://www.sharevalue.nl/klantcases"
+									>Klantcases</a
+								>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link nav-link-ltr" href="/updates">Updates</a>
+								<a class="nav-link nav-link-ltr" href="https://www.sharevalue.nl/updates">Updates</a>
 							</li>
 						</ul>
 					</div>
@@ -41,23 +57,39 @@
 					<div class="col-5">
 						<ul class="navbar-nav mr-auto second-menu d-flex justify-content-end">
 							<li class="nav-item">
-								<a class="nav-link nav-link-ltr" href="/over-ons">Over ons</a>
+								<a class="nav-link nav-link-ltr" href="https://www.sharevalue.nl/over-ons">Over ons</a>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link nav-link-ltr dropdown-toggle" href="/word-onze-collega"
+								<a
+									class="nav-link nav-link-ltr dropdown-toggle"
+									href="https://www.sharevalue.nl/word-onze-collega"
 									>Word onze collega</a
 								>
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="/word-onze-collega/vacatures">Vacatures</a>
-									<a class="dropdown-item" href="/word-onze-collega/memberships">Memberships</a>
-									<a class="dropdown-item" href="/word-onze-collega/collegas-aan-het-woord"
+									<a
+										class="dropdown-item"
+										href="https://www.sharevalue.nl/word-onze-collega/vacatures"
+										>Vacatures</a
+									>
+									<a
+										class="dropdown-item"
+										href="https://www.sharevalue.nl/word-onze-collega/memberships"
+										>Memberships</a
+									>
+									<a
+										class="dropdown-item"
+										href="https://www.sharevalue.nl/word-onze-collega/collegas-aan-het-woord"
 										>Collega’s aan het woord</a
 									>
-									<a class="dropdown-item" href="/word-onze-collega/stagelopen">Stage lopen</a>
+									<a
+										class="dropdown-item"
+										href="https://www.sharevalue.nl/word-onze-collega/stagelopen"
+										>Stage lopen</a
+									>
 								</div>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link nav-link-ltr" href="/contact">Contact</a>
+								<a class="nav-link nav-link-ltr" href="https://www.sharevalue.nl/contact">Contact</a>
 							</li>
 						</ul>
 					</div>
@@ -90,25 +122,20 @@ export default defineComponent({
 .navbar {
 	.nav-item {
 		.dropdown-menu {
+			display: none;
+		}
+		&:hover {
+			.dropdown-menu {
+				display: block;
+			}
 		}
 		.dropdown-toggle {
 			&::after {
+				margin-left: 10px;
+				margin-bottom: -3px;
 			}
 		}
 	}
-}
-
-.navbar .nav-item .dropdown-menu {
-	display: none;
-}
-
-.navbar .nav-item:hover .dropdown-menu {
-	display: block;
-}
-
-.navbar .nav-item .dropdown-toggle::after {
-	margin-left: 10px;
-	margin-bottom: -3px;
 }
 
 .nav-link:focus,
@@ -172,11 +199,13 @@ export default defineComponent({
 }
 
 @media all and (min-width: 992px) and (max-width: 1199px) {
-	.navbar-collapse .first-menu li {
-		margin-right: 1.5rem;
-	}
-	.navbar-collapse .second-menu li {
-		margin-left: 1.5rem;
+	.navbar-collapse {
+		.first-menu li {
+			margin-right: 1.5rem;
+		}
+		.second-menu li {
+			margin-left: 1.5rem;
+		}
 	}
 }
 </style>
