@@ -45,14 +45,14 @@ export function vueSlide(
 		}
 
 		document
-			.getElementById('scene')
-			.setAttribute('background', `color: rgb(${color?.r}, ${color?.g}, ${color?.b});`)
+			?.getElementById('scene')
+			?.setAttribute('background', `color: rgb(${color?.r}, ${color?.g}, ${color?.b});`)
 	}
 	if (vuePassed && componentScope.vueImage.y <= 9.5) {
 		componentScope.scrollFase = 4
 		document
-			.getElementById('scene')
-			.setAttribute('background', `color: rgb(${vueColor?.r}, ${vueColor?.g}, ${vueColor?.b});`)
+			?.getElementById('scene')
+			?.setAttribute('background', `color: rgb(${vueColor?.r}, ${vueColor?.g}, ${vueColor?.b});`)
 	}
 }
 
@@ -87,7 +87,7 @@ export function angularSlide(
 		if (color.r === angularColor?.r && color.g === angularColor?.g && color.b === angularColor?.b) {
 			angularPassed = true
 		}
-		document.getElementById('scene').setAttribute('background', `color: rgb(${color.r}, ${color.g}, ${color.b});`)
+		document?.getElementById('scene')?.setAttribute('background', `color: rgb(${color.r}, ${color.g}, ${color.b});`)
 	}
 	if (angularPassed && componentScope.angular.y <= 9.5) {
 		componentScope.scrollFase = 3
@@ -131,8 +131,8 @@ export function reactSlide(
 			reactPassed = true
 		}
 		document
-			.getElementById('scene')
-			.setAttribute('background', `color: rgb(${color.r}, ${color.g}, ${color.b});`)
+			?.getElementById('scene')
+			?.setAttribute('background', `color: rgb(${color.r}, ${color.g}, ${color.b});`)
 	} else if (delta === 1) {
 		reactPassed = false
 		console.log('Delta is 1')
@@ -146,8 +146,8 @@ export function reactSlide(
 			color.b -= 1
 		}
 		document
-			.getElementById('scene')
-			.setAttribute('background', `color: rgb(${color.r}, ${color.g}, ${color.b});`)
+			?.getElementById('scene')
+			?.setAttribute('background', `color: rgb(${color.r}, ${color.g}, ${color.b});`)
 	}
 	// If rocket passed and color is done, continue to rest of the page
 	if (componentScope.rocket.y > 16 && reactPassed) {

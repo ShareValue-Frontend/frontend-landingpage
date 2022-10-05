@@ -6,12 +6,13 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
   import React from '@/components/icons/iconReact.vue'
   import Vue from '@/components/icons/iconVue.vue'
   import Angular from '@/components/icons/iconAngular.vue'
+import { defineComponent } from '@vue/runtime-core'
 
-export default {
+export default defineComponent({
   name: 'cardLogo',
   components: {
     React,
@@ -25,7 +26,7 @@ export default {
     return {
     };
   },
-}
+})
 </script>
 
 <style scoped lang="scss">

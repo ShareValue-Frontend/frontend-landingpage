@@ -87,11 +87,12 @@
 	</a-scene>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from '@vue/runtime-core'
 import { angularSlide, reactSlide, vueSlide } from './shared/aframe-slides'
 
-export default {
-	name: 'TheSene',
+export default defineComponent({
+	name: 'TheScene',
 	emits: ['animationDone', 'animationResumed'],
 	data() {
 		return {
@@ -147,7 +148,10 @@ export default {
 				r: 255,
 				g: 231,
 				b: 66
-			}
+			},
+			reactPassed: false,
+			angularPassed: false,
+			vuePassed: false
 		}
 	},
 	methods: {},
@@ -155,17 +159,13 @@ export default {
 		const jsColor = { r: 255, g: 231, b: 66 }
 		const reactColor = { r: 97, g: 218, b: 251 }
 		const angularColor = { r: 221, g: 27, b: 22 }
-    const vuecolor = { r: 65, g: 184, b: 131 }
-    
-		let reactPassed = false
-		let angularPassed = false
-    let vuePassed = false
-    
+		const vuecolor = { r: 65, g: 184, b: 131 }
+
 		document.addEventListener('wheel', e => {
 			if (e.type != 'wheel') {
 				return
 			}
-			let delta = (e.deltaY || -e.wheelDelta || e.detail) >> 10 || 1
+			let delta = (e.deltaY || -e.deltaY || e.detail) >> 10 || 1
 			delta = delta * -1
 
 			/**
@@ -174,7 +174,7 @@ export default {
 			 *
 			 */
 			if (this.scrollFase === 1) {
-				reactSlide(this, this.color, reactColor, jsColor, reactPassed, delta)
+				reactSlide(this, this.color, reactColor, jsColor, this.reactPassed, delta)
 
 				/**
 				 *
@@ -182,7 +182,7 @@ export default {
 				 *
 				 */
 			} else if (this.scrollFase === 2) {
-				angularSlide(this, this.color, angularColor, angularPassed, delta)
+				angularSlide(this, this.color, angularColor, this.angularPassed, delta)
 
 				/**
 				 *
@@ -190,7 +190,7 @@ export default {
 				 *
 				 */
 			} else if (this.scrollFase === 3) {
-				vueSlide(this, this.color, vuecolor, vuePassed, delta)
+				vueSlide(this, this.color, vuecolor, this.vuePassed, delta)
 
 				/**
 				 *
@@ -205,20 +205,8 @@ export default {
 				this.$emit('animationResumed')
 			}
 		})
-	},
-	computed: {
-		box_style() {
-			return {
-				transform: `
-          perspective(${this.perspective}px)
-          rotateX(${this.rotateX}deg)
-          rotateY(${this.rotateY}deg)
-          rotateZ(${this.rotateZ}deg)
-        `
-			}
-		}
 	}
-}
+})
 </script>
 
 <style lang="scss">
