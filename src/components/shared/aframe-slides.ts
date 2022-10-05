@@ -5,16 +5,16 @@ export interface ColorObject {
 }
 
 export interface ObjectPosition {
-    x: number,
-    y: number,
-    z: number
+	x: number
+	y: number
+	z: number
 }
 
 export function vueSlide(
-    componentScope: any,
-    vueText: ObjectPosition,
-    vueImage: ObjectPosition,
-    scrollSpeed: number,
+	componentScope: any,
+	vueText: ObjectPosition,
+	vueImage: ObjectPosition,
+	scrollSpeed: number,
 	color: ColorObject,
 	vueColor: ColorObject,
 	vuePassed: boolean,
@@ -32,8 +32,6 @@ export function vueSlide(
 		vueImage.y += scrollSpeed * delta
 	}
 	if (!vuePassed && delta === -1) {
-		console.info('vuePassed: ', vuePassed)
-		console.info('color: ', color)
 		if (color?.r !== vueColor?.r) {
 			color.r -= 1
 		}
@@ -59,10 +57,10 @@ export function vueSlide(
 	}
 }
 export function angularSlide(
-    componentScope: any,
-    angular: ObjectPosition,
-    angularText: ObjectPosition,
-    scrollSpeed: number,
+	componentScope: any,
+	angular: ObjectPosition,
+	angularText: ObjectPosition,
+	scrollSpeed: number,
 	color: ColorObject,
 	angularColor: ColorObject,
 	angularPassed: boolean,
@@ -80,9 +78,6 @@ export function angularSlide(
 		angular.y += scrollSpeed * delta
 	}
 	if (!angularPassed && delta === -1) {
-		console.info('angularPassed: ', angularPassed)
-		console.info('color: ', color)
-
 		if (color.r !== angularColor?.r) {
 			color.r += 1
 		}
@@ -92,21 +87,76 @@ export function angularSlide(
 		if (color.b !== angularColor?.b) {
 			color.b -= 1
 		}
-		if (
-			color.r === angularColor?.r &&
-			color.g === angularColor?.g &&
-			color.b === angularColor?.b
-		) {
+		if (color.r === angularColor?.r && color.g === angularColor?.g && color.b === angularColor?.b) {
 			angularPassed = true
 		}
-		document
-			.getElementById('scene')
-			.setAttribute(
-				'background',
-				`color: rgb(${color.r}, ${color.g}, ${color.b});`
-			)
+		document.getElementById('scene').setAttribute('background', `color: rgb(${color.r}, ${color.g}, ${color.b});`)
 	}
 	if (angularPassed && angular.y <= 9.5) {
 		componentScope.scrollFase = 3
+	}
+}
+
+export function reactSlide(
+	componentScope: any,
+	rocket: ObjectPosition,
+	reactText: ObjectPosition,
+	reactImage: ObjectPosition,
+	scrollSpeed: number,
+	color: ColorObject,
+    reactColor: ColorObject,
+    jsColor: ColorObject,
+	reactPassed: boolean,
+	delta: number
+) {
+	/** Scroll fase 1: FRONTEND => REACT */
+	if (delta === -1 || (delta === 1 && componentScope.frontEnd.y <= 10.7 - scrollSpeed)) {
+		componentScope.frontEnd.y += scrollSpeed * delta
+		componentScope.sharevalue.y += scrollSpeed * delta
+	}
+
+	rocket.y -= scrollSpeed * delta
+	rocket.x -= scrollSpeed * delta
+
+	if (reactText.y > 10.7 || delta === 1) {
+		reactText.y += scrollSpeed * delta
+	}
+	if (reactImage.y > 9.5 || delta === 1) {
+		reactImage.y += scrollSpeed * delta
+	}
+	if (!reactPassed && delta === -1) {
+		if (color.r !== reactColor?.r) {
+			color.r -= 1
+		}
+		if (color.g !== reactColor?.g) {
+			color.g -= 1
+		}
+		if (color.b !== reactColor?.b) {
+			color.b += 1
+		}
+		if (color.r === reactColor?.r && color.g === reactColor?.g && color.b === reactColor?.b) {
+			reactPassed = true
+		}
+		document
+			.getElementById('scene')
+			.setAttribute('background', `color: rgb(${color.r}, ${color.g}, ${color.b});`)
+	} else if (delta === 1) {
+		reactPassed = false
+		if (color.r !== jsColor.r) {
+			color.r += 1
+		}
+		if (color.g !== jsColor.g) {
+			color.g += 1
+		}
+		if (color.b !== jsColor.b) {
+			color.b -= 1
+		}
+		document
+			.getElementById('scene')
+			.setAttribute('background', `color: rgb(${color.r}, ${color.g}, ${color.b});`)
+	}
+	// If rocket passed and color is done, continue to rest of the page
+	if (rocket.y > 16 && reactPassed) {
+		componentScope.scrollFase = 2
 	}
 }

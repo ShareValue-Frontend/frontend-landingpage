@@ -88,7 +88,8 @@
 </template>
 
 <script lang="ts">
-import { angularSlide, vueSlide } from './shared/aframe-slides'
+import type { CreateComponentPublicInstance } from '@vue/runtime-core'
+import { angularSlide, reactSlide, vueSlide } from './shared/aframe-slides'
 
 export default {
 	name: 'TheSene',
@@ -152,16 +153,6 @@ export default {
 	},
 	methods: {},
 	mounted() {
-		let jsR = 255
-		let jsG = 231
-		let jsB = 66
-		let reactR = 97
-		let reactG = 218
-		let reactB = 251
-		let angularR = 221
-		let angularG = 27
-		let angularB = 22
-
 		const angularRGB = {
 			r: 221,
 			g: 27,
@@ -172,93 +163,60 @@ export default {
 			g: 184,
 			b: 131
 		}
+		const reactRGB = {
+			r: 97,
+			g: 218,
+			b: 251
+		}
+		const jsRGB = {
+			r: 255,
+			g: 231,
+			b: 66
+		}
 
-		let vueR = 65
-		let vueG = 184
-		let vueB = 131
 		let reactPassed = false
 		let angularPassed = false
 		let vuePassed = false
-		document.addEventListener('wheel', e => {
-			if (e.type != 'wheel') {
-				return
+		document.addEventListener('wheel', (event) => scrollLogic(event, this))
+
+    function scrollLogic(event: WheelEvent, scope: CreateComponentPublicInstance) {
+      if (event.type != 'wheel') {
+        return
 			}
-			let delta = (e.deltaY || -e.wheelDelta || e.detail) >> 10 || 1
-			delta = delta * -1
-
-			console.info('scrollFase: ', this.scrollFase)
-			console.info('delta: ', delta)
-
+			let delta = (event.deltaY || -event.wheelDelta || event.detail) >> 10 || 1
+      delta = delta * -1
+      
 			/**
 			 *
 			 * PHASE 1: REACT
 			 *
 			 */
-			if (this.scrollFase === 1) {
-				/** Scroll fase 1: FRONTEND => REACT */
-				if (delta === -1 || (delta === 1 && this.frontEnd.y <= 10.7 - this.animationScrollSpeed)) {
-					this.frontEnd.y += this.animationScrollSpeed * delta
-					this.sharevalue.y += this.animationScrollSpeed * delta
-				}
-
-				this.rocket.y -= this.animationScrollSpeed * delta
-				this.rocket.x -= this.animationScrollSpeed * delta
-
-				if (this.reactRocket.y > 10.7 || delta === 1) {
-					this.reactRocket.y += this.animationScrollSpeed * delta
-				}
-				if (this.react.y > 9.5 || delta === 1) {
-					this.react.y += this.animationScrollSpeed * delta
-				}
-				if (!reactPassed && delta === -1) {
-					if (this.color.r !== reactR) {
-						this.color.r -= 1
-					}
-					if (this.color.g !== reactG) {
-						this.color.g -= 1
-					}
-					if (this.color.b !== reactB) {
-						this.color.b += 1
-					}
-					if (this.color.r === reactR && this.color.g === reactG && this.color.b === reactB) {
-						reactPassed = true
-					}
-					document
-						.getElementById('scene')
-						.setAttribute('background', `color: rgb(${this.color.r}, ${this.color.g}, ${this.color.b});`)
-				} else if (delta === 1) {
-					reactPassed = false
-					console.log('Delta is 1')
-					if (this.color.r !== jsR) {
-						this.color.r += 1
-					}
-					if (this.color.g !== jsG) {
-						this.color.g += 1
-					}
-					if (this.color.b !== jsB) {
-						this.color.b -= 1
-					}
-					document
-						.getElementById('scene')
-						.setAttribute('background', `color: rgb(${this.color.r}, ${this.color.g}, ${this.color.b});`)
-				}
-				// If rocket passed and color is done, continue to rest of the page
-				if (this.rocket.y > 16 && reactPassed) {
-					this.scrollFase = 2
-				}
+			if (scope.scrollFase === 1) {
+				reactSlide(
+					scope,
+					scope.rocket,
+					scope.reactRocket,
+					scope.react,
+					scope.animationScrollSpeed,
+					scope.color,
+          reactRGB,
+          jsRGB,
+					reactPassed,
+					delta
+				)
 
 				/**
 				 *
 				 * PHASE 2: ANGULAR
 				 *
 				 */
-			} else if (this.scrollFase === 2) {
+			} else if (scope.scrollFase === 2) {
 				angularSlide(
-					this,
-					this.angular,
-					this.angularText,
-					this.animationScrollSpeed,
-					this.color,
+					scope,
+					scope.angular,
+					scope.angularText,
+					scope.animationScrollSpeed,
+					scope.color,
 					angularRGB,
 					angularPassed,
 					delta
@@ -269,24 +227,24 @@ export default {
 				 * PHASE 3: VUE
 				 *
 				 */
-			} else if (this.scrollFase === 3) {
+			} else if (scope.scrollFase === 3) {
 				vueSlide(
-					this,
-					this.vueText,
-					this.vueImage,
-					this.animationScrollSpeed,
-					this.color,
+					scope,
+					scope.vueText,
+					scope.vueImage,
+					scope.animationScrollSpeed,
+					scope.color,
 					vueRGB,
 					vuePassed,
 					delta
 				)
-			} else if (this.scrollFase === 4) {
-				this.$emit('animationDone')
+			} else if (scope.scrollFase === 4) {
+				scope.$emit('animationDone')
 			}
 			if (delta === 1 && window.scrollY === 0) {
-				this.$emit('animationResumed')
+				scope.$emit('animationResumed')
 			}
-		})
+    }
 	},
 	computed: {
 		box_style() {
