@@ -38,7 +38,7 @@ export default defineComponent({
 					size: '40',
 					offset: false,
 					overlay: false,
-					image: './src/assets/img/team_3.jpg'
+					image: '/img/team_3.jpg'
 				},
 				{
 					label: 'Wietze',
@@ -52,14 +52,14 @@ export default defineComponent({
 					size: '20',
 					offset: false,
 					overlay: false,
-					image: './src/assets/img/food_1.jpg'
+					image: '/img/food_1.jpg'
 				},
 				{
 					label: 'Team building',
 					size: '40',
 					offset: false,
 					overlay: false,
-					image: './src/assets/img/team_2.jpg'
+					image: '/img/team_2.jpg'
 				},
 				{
 					label: 'Rudy',
@@ -73,7 +73,7 @@ export default defineComponent({
 					size: '20',
 					offset: false,
 					overlay: false,
-					image: './src/assets/img/fun_3.jpg'
+					image: '/img/fun_3.jpg'
 				},
 				{
 					label: 'Johan',
@@ -87,7 +87,7 @@ export default defineComponent({
 					size: '20',
 					offset: false,
 					overlay: false,
-					image: './src/assets/img/fun_1.jpg'
+					image: '/img/fun_1.jpg'
 				},
 				{
 					label: 'Marwan',
@@ -101,14 +101,14 @@ export default defineComponent({
 					size: '40',
 					offset: false,
 					overlay: false,
-					image: './src/assets/img/team_4.jpg'
+					image: '/img/team_4.jpg'
 				},
 				{
-					label: 'Raymon',
+					label: 'Jean Pierre',
 					size: '20',
 					offset: true,
 					overlay: true,
-					image: 'https://www.sharevalue.nl/images/sharevalue/employees/Raymon.jpg'
+					image: 'https://www.sharevalue.nl/images/sharevalue/employees/Jean-Pierre.jpg'
 				}
 			]
 		}
