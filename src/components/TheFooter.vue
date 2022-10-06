@@ -58,25 +58,27 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "TheFooter",
-};
+<script lang="ts">
+import { defineComponent } from '@vue/runtime-core'
+
+export default defineComponent({
+	name: 'TheFooter'
+})
 </script>
 
 <style lang="scss">
 .footer {
-  background-color: #393d3f;
-  color: #fff;
+	background-color: #393d3f;
+	color: #fff;
 }
 
 .second-footer {
-  background-color: #24282a;
-  color: #fff;
+	background-color: #24282a;
+	color: #fff;
 }
 
 .footer-top {
-  padding: 2.5rem;
+	padding: 2.5rem;
 }
 
 .footer-bottom {
@@ -120,34 +122,34 @@ p a:hover,
 .fa-linkedin-square:hover,
 .fa-twitter:hover,
 .fa-facebook-square:hover {
-  color: #8ca2b3;
-  transition: color 0.2s ease-in;
+	color: #8ca2b3;
+	transition: color 0.2s ease-in;
 }
 
 .dark-text {
-  color: #8ca2b3;
+	color: #8ca2b3;
 }
 
 .fa-envelope {
-  font-size: 12px;
-  margin-right: 10px;
+	font-size: 12px;
+	margin-right: 10px;
 }
 
 .fa-phone {
-  margin-right: 10px;
+	margin-right: 10px;
 }
 
 .fa-linkedin-square,
 .fa-twitter,
 .fa-facebook-square {
-  font-size: 36px;
-  color: #fff;
-  margin-right: 1rem;
+	font-size: 36px;
+	color: #fff;
+	margin-right: 1rem;
 }
 
 @media all and (max-width: 992px) {
-.footer-top{
-    text-align: center;
-}
+	.footer-top {
+		text-align: center;
+	}
 }
 </style>

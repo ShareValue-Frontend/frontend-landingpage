@@ -56,13 +56,13 @@
   </div>
 </template>
 
-<script>
-import { ref } from "vue";
+<script lang="ts">
+import { defineComponent, ref } from "vue";
 import React from '@/components/icons/iconReact.vue'
 import Vue from '@/components/icons/iconVue.vue'
 import Angular from '@/components/icons/iconAngular.vue'
 
-export default {
+export default defineComponent({
   name: 'theQuote',
     components: {
     React,
@@ -81,7 +81,7 @@ export default {
       angular,
     };
   },
-}
+})
 </script>
 
 <style lang="scss">
