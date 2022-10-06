@@ -347,7 +347,7 @@ export default defineComponent({
 						}
 					}
 					&.background {
-						background-image: url('./src/assets/img/card-back.jpg');
+						background-image: url('/img/card-back.jpg');
 						border: 10px solid #fff;
 					}
 				}
