@@ -11,16 +11,16 @@
 			<a-entity id="camera" scale="1 1 0.5" camera look-controls="false" wasd-controls="false"></a-entity>
 		</a-entity>
 		<a-assets>
-			<!--<a-asset-item id="glove" src="../src/assets/obj/boxingGlove/scene.gltf"></a-asset-item>-->
-			<a-asset-item id="frontendObj" src="../src/assets/obj/frontend developer.obj"></a-asset-item>
-			<a-asset-item id="sharevalueObj" src="../src/assets/obj/sv3.obj"></a-asset-item>
-			<a-asset-item id="reactRocketObj" src="../src/assets/obj/react-rocket.obj"></a-asset-item>
-			<a-asset-item id="rocketObj" src="../src/assets/obj/10475_Rocket_Ship_v1_L3.obj"></a-asset-item>
-			<a-asset-item id="angularObj" src="../src/assets/obj/angular.obj"></a-asset-item>
-			<a-asset-item id="vueObj" src="../src/assets/obj/vue.obj"></a-asset-item>
-			<img id="react-img" src="../assets/img/react-img.png" />
-			<img id="angular-img" src="../assets/img/angular.png" />
-			<img id="vue-img" src="../assets/img/vue-logo.png" />
+			<!--<a-asset-item id="glove" src="/obj/boxingGlove/scene.gltf"></a-asset-item>-->
+			<a-asset-item id="frontendObj" src="/obj/frontend developer.obj"></a-asset-item>
+			<a-asset-item id="sharevalueObj" src="/obj/sv3.obj"></a-asset-item>
+			<a-asset-item id="reactRocketObj" src="/obj/react-rocket.obj"></a-asset-item>
+			<a-asset-item id="rocketObj" src="/obj/10475_Rocket_Ship_v1_L3.obj"></a-asset-item>
+			<a-asset-item id="angularObj" src="/obj/angular.obj"></a-asset-item>
+			<a-asset-item id="vueObj" src="/obj/vue.obj"></a-asset-item>
+			<img id="react-img" src="/img/react-img.png" />
+			<img id="angular-img" src="/img/angular.png" />
+			<img id="vue-img" src="/img/vue-logo.png" />
 		</a-assets>
 		<!--<a-gltf-model scale="0.01 0.01 0.01" position="25 10 -7" rotation="0 180 0" src="#glove"></a-gltf-model>-->
 		<a-entity
