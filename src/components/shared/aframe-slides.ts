@@ -14,6 +14,7 @@ export function vueSlide(
 	componentScope: any,
 	color: ColorObject,
 	vueColor: ColorObject,
+	sharevalueColor: ColorObject,
 	vuePassed: boolean,
 	delta: number
 ) {
@@ -52,7 +53,7 @@ export function vueSlide(
 		componentScope.scrollFase = 4
 		document
 			?.getElementById('scene')
-			?.setAttribute('background', `color: rgb(${vueColor?.r}, ${vueColor?.g}, ${vueColor?.b});`)
+			?.setAttribute('background', `color: rgb(${sharevalueColor?.r}, ${sharevalueColor?.g}, ${sharevalueColor?.b});`)
 	}
 }
 
