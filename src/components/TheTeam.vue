@@ -135,6 +135,8 @@ export default defineComponent({
 			height: 300px;
 			background-size: cover;
 			border: 5px solid #38382e;
+			background-position: center;
+			background-repeat: no-repeat;
 			&.offset-negative {
 				background-position-y: -80px;
 			}
