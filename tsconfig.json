@@ -4,17 +4,21 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/*"]
+			"@/*": ["./src/*"],
+			"lax": ["./types/lax.js"]
 		},
 		"target": "ESNext",
 		"lib": ["ESNext", "DOM"],
 		"isolatedModules": true,
-		"noImplicitThis": true
+		"noImplicitThis": true,
+		"noImplicitAny": false,
+		"typeRoots": ["./types/**", "./node_modules/@types"]
 	},
 
 	"references": [
 		{
 			"path": "./tsconfig.vite-config.json"
 		}
-	]
+	],
+	"exclude": ["node_modules", "typings", "./types"]
 }
