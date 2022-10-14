@@ -71,4 +71,13 @@ export default defineComponent({
 		}
 	}
 }
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+	.information {
+		font-size: 5vw;
+		.hero-block {
+			margin-left: 0;
+		}
+	}
+}
 </style>

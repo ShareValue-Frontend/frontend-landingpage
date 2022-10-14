@@ -84,7 +84,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity 1.5s ease;
@@ -101,11 +101,15 @@ export default defineComponent({
   padding: 7vw 7vw 12vw;
   background-color: #000;
   width: 100vw;
-  font-size: 3vw;
   .quote-wrapper {
     display: flex;
     justify-content: center;
+    font-size: 3vw;
     flex-wrap: wrap;
+
+    @media screen and (min-width: 300px) and (max-width: 600px) {
+      font-size: 7vw;
+		}
     .invisilbe-quote {
       min-height: 90px;
       min-width: 77%;
