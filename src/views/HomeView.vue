@@ -14,7 +14,6 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import TheSlider from '@/components/TheSlider.vue'
-import TheScene from '@/components/TheScene.vue'
 import TheTeam from '@/components/TheTeam.vue'
 import TheInformation from '@/components/TheInformation.vue'
 import TheQuote from '@/components/TheQuote.vue'
@@ -33,7 +32,6 @@ export default defineComponent({
 	components: {
 		TheSlider,
 		TheNavbar,
-		TheScene,
 		TheInformation,
 		TheTeam,
 		TheQuote,

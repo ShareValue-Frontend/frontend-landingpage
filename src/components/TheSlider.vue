@@ -37,8 +37,8 @@
 	</div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from '@vue/runtime-core'
+<script setup>
+import { defineComponent, onMounted } from '@vue/runtime-core'
 import lax from 'lax.js'
 
 const frameWidth = 370
@@ -46,82 +46,76 @@ const frameCount = 12
 
 window.onload = function () {}
 
-export default defineComponent({
-	name: 'TheSlider',
-	data() {
-		return {}
-	},
-	mounted() {
-		lax.init()
+onMounted(() => {
+	lax.init()
 
-		console.log('lax: ', lax)
-		console.log('scroll: ', window.scrollY)
+	console.log('lax: ', lax)
+	console.log('scroll: ', window.scrollY)
 
-		lax.addDriver('scrollY', function () {
-			return window.scrollY
-		})
+	lax.addDriver('scrollY', function () {
+		return window.scrollY
+	})
 
-		lax.addElements('.slide-title', {
-			scrollY: {
-				translateY: [
-					['elInY', 'elCenterY', 'elOutY'],
-					[800, 0, -800],
-					{
-						easing: 'easeInOutQuart',
-						frameStep: 0.5
-					}
-				],
-				opacity: [
-					['elInY', 'elCenterY', 'elOutY'],
-					[0, 1, 0],
-					{
-						easing: 'easeInOutQuart',
-						frameStep: 0.5
-					}
-				]
-			}
-		})
-		lax.addElements('.slide-logo', {
-			scrollY: {
-				opacity: [
-					['elInY', 'elCenterY', 'elOutY'],
-					[0, 1, 0],
-					{
-						easing: 'easeInOutQuart',
-						frameStep: 0.5
-					}
-				]
-			}
-		})
-		lax.addElements('.slide-background', {
-			scrollY: {
-				translateX: [
-					['elInY', 'elOutY'],
-					[-500, -200]
-				]
-			}
-		})
-		lax.addElements('.slide-subtitle', {
-			scrollY: {
-				translateY: [
-					['elInY', 'elCenterY', 'elOutY'],
-					[800, 0, -800],
-					{
-						easing: 'easeInOutQuart',
-						frameStep: 0.5
-					}
-				]
-				// opacity: [
-				//   ["elInY", "elCenterY", "elOutY"],
-				//   [0, 1, 0],
-				//   {
-				//     easing: "easeInOutQuart",
-				//     frameStep: 0.5
-				//   }
-				// ]
-			}
-		})
-	}
+	lax.addElements('.slide-title', {
+		scrollY: {
+			translateY: [
+				['elInY', 'elCenterY', 'elOutY'],
+				[800, 0, -800],
+				{
+					easing: 'easeInOutQuart',
+					frameStep: 0.5
+				}
+			],
+			opacity: [
+				['elInY', 'elCenterY', 'elOutY'],
+				[0, 1, 0],
+				{
+					easing: 'easeInOutQuart',
+					frameStep: 0.5
+				}
+			]
+		}
+	})
+	lax.addElements('.slide-logo', {
+		scrollY: {
+			opacity: [
+				['elInY', 'elCenterY', 'elOutY'],
+				[0, 1, 0],
+				{
+					easing: 'easeInOutQuart',
+					frameStep: 0.5
+				}
+			]
+		}
+	})
+	lax.addElements('.slide-background', {
+		scrollY: {
+			translateX: [
+				['elInY', 'elOutY'],
+				[-500, -200]
+			]
+		}
+	})
+	lax.addElements('.slide-subtitle', {
+		scrollY: {
+			translateY: [
+				['elInY', 'elCenterY', 'elOutY'],
+				[800, 0, -800],
+				{
+					easing: 'easeInOutQuart',
+					frameStep: 0.5
+				}
+			]
+			// opacity: [
+			//   ["elInY", "elCenterY", "elOutY"],
+			//   [0, 1, 0],
+			//   {
+			//     easing: "easeInOutQuart",
+			//     frameStep: 0.5
+			//   }
+			// ]
+		}
+	})
 })
 </script>
 
