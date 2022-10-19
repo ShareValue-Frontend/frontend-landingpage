@@ -106,7 +106,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .container {
 	max-width: 1280px !important;
 	margin: 0 auto;

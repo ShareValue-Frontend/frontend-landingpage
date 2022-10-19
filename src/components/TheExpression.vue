@@ -159,7 +159,7 @@ export default defineComponent({
 				// },{
 				// 	name: 'Raymon',
 				//   primaryFramework: 'Angular',
-				//   secondaryFramework: '',
+				//   secondaryFramework: 'Vue',
 				//   tertiaireFramework: '',
 				// 	image: 'https://www.sharevalue.nl/images/sharevalue/employees/Raymon.jpg',
 				//   position: 7,
@@ -184,6 +184,7 @@ export default defineComponent({
 	width: 100vw;
 	background: #f3912b;
 	background: linear-gradient(to right, #f3912b 55%, #facfae);
+
 	.hero-block {
 		border-radius: 0.3125rem;
 		position: relative;
@@ -193,6 +194,10 @@ export default defineComponent({
 		justify-content: center;
 		max-width: 36.875rem;
 		margin-left: 2.5rem;
+		@media screen and (min-width: 300px) and (max-width: 600px) {
+			margin-left: 0;
+		}
+
 		&:before {
 			border-radius: 0.3125rem;
 			-webkit-clip-path: polygon(0 0, 100% 0, 94% 100%, 0% 100%);
@@ -215,6 +220,11 @@ export default defineComponent({
 	.hero-block--main {
 		height: 32rem;
 		min-width: 94%;
+
+		@media screen and (min-width: 300px) and (max-width: 600px) {
+			height: auto;
+			padding-bottom: 3rem;
+		}
 		&:before {
 			background: #ffe742;
 		}
@@ -223,8 +233,17 @@ export default defineComponent({
 	.expressions-wrapper {
 		display: flex;
 		flex-wrap: wrap;
+
+		@media screen and (min-width: 300px) and (max-width: 600px) {
+			flex-direction: column;
+		}
 		.developer-talk {
 			width: 50vw;
+
+			@media screen and (min-width: 300px) and (max-width: 600px) {
+				width: 100%;
+				padding-top: 2rem;
+			}
 			h2 {
 				font-size: 2vw;
 				color: #fff;
@@ -233,12 +252,21 @@ export default defineComponent({
 			p {
 				font-size: 1.5vw;
 				color: #fff;
+
+				@media screen and (min-width: 300px) and (max-width: 600px) {
+					font-size: 5vw;
+				}
 			}
 		}
 		.developer-image {
 			width: 30vw;
 			position: relative;
 			bottom: 60px;
+
+			@media screen and (min-width: 300px) and (max-width: 600px) {
+				margin-left: 2rem;
+				margin-top: 2rem;
+			}
 			.flip-card {
 				width: 13rem;
 				height: 25rem;

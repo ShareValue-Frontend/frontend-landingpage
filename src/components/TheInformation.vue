@@ -30,7 +30,7 @@ export default defineComponent({
 	width: 100vw;
 	background: #ffe7423b;
 	background: linear-gradient(to right, #ffd111 55%, #fff9d3);
-	font-size: 2.5vw;
+	font-size: 3rem;
 	h2 {
 		font-size: 3vw;
 		font-weight: bolder;
@@ -68,6 +68,20 @@ export default defineComponent({
 		min-width: 94%;
 		&:before {
 			background: #ffe742;
+		}
+	}
+}
+
+@media screen and (max-width: 1201px) {
+	.information {
+		font-size: 2rem;
+	}
+}
+@media screen and (min-width: 300px) and (max-width: 600px) {
+	.information {
+		// font-size: 5vw;
+		.hero-block {
+			margin-left: 0;
 		}
 	}
 }

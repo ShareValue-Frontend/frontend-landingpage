@@ -34,7 +34,7 @@ export default defineComponent({
 }
 
 .code-team-quote {
-	padding: 2vw 7vw;
+	padding: 5vw 7vw 2vw;
 	background-color: #000;
 	color: #2c3e50;
 	width: 100vw;
@@ -62,6 +62,12 @@ export default defineComponent({
 				color: #c3602c;
 			}
 		}
+	}
+}
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+	.code-team-quote {
+		font-size: 5vw;
 	}
 }
 </style>

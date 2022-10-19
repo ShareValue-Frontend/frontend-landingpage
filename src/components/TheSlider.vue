@@ -155,6 +155,8 @@ onMounted(() => {
 	display: inline-block;
 }
 
+
+
 .slide h2 {
 	font-size: 3rem;
 	text-transform: uppercase;
@@ -198,7 +200,7 @@ onMounted(() => {
 .js {
 	background: #f7df1e;
 }
-.js h2 {
+.slide.js h2 {
 	color: #000;
 }
 .vue {
@@ -223,5 +225,21 @@ onMounted(() => {
 
 .angular .slide-background {
 	background-image: url('https://raw.githubusercontent.com/ShareValue-Frontend/frontend-logos/main/angular-pattern.png');
+}
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+	.block {
+		font-size: 10vw;
+		padding: 1.5rem 2rem;
+	}
+	.slide h2 {
+		font-size: 7vw;
+	}
+
+	.slide.react h2,
+	.slide.vue h2,
+	.slide.angular h2 {
+		font-size: 11vw;
+	}
 }
 </style>
