@@ -1,12 +1,5 @@
 <template>
-	<div class="wrapper">
-		<div class="slide js">
-			<div class="slide-background"></div>
-			<div class="slide-logo">
-				<h2>Frontend Developer</h2>
-				<strong class="block">ShareValue</strong>
-			</div>
-		</div>
+	<div class="wrapper">	
 		<div class="slide react">
 			<div class="slide-background"></div>
 			<div class="slide-title">
@@ -32,6 +25,13 @@
 			</div>
 			<div class="slide-subtitle">
 				<img width="150" height="150" src="https://sharevalue-frontend.netlify.app/img/vue-logo.png" />
+			</div>
+		</div>
+		<div class="slide js">
+			<div class="slide-background"></div>
+			<div class="slide-logo">
+				<h2>Frontend Developer</h2>
+				<strong class="block">ShareValue</strong>
 			</div>
 		</div>
 	</div>
@@ -123,6 +123,7 @@ onMounted(() => {
 .wrapper {
 	min-height: 100vh;
 	position: relative;
+	background: linear-gradient(180deg, rgba(2,159,188,1) 12%, rgba(162,27,30,1) 34%, rgba(64,151,112,1) 70%, rgba(247,223,30,1) 84%);
 }
 .bg {
 	position: absolute;
@@ -137,7 +138,6 @@ onMounted(() => {
 	position: relative;
 	overflow: hidden;
 	height: 200vh;
-	background: grey;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -185,10 +185,6 @@ onMounted(() => {
 	opacity: 0.4;
 }
 
-.js .slide-background {
-	background-image: url('https://raw.githubusercontent.com/ShareValue-Frontend/frontend-logos/main/js-pattern.png');
-}
-
 .js .slide-logo {
 	position: absolute;
 	top: 50vh;
@@ -197,34 +193,8 @@ onMounted(() => {
 	margin-bottom: 1rem;
 }
 
-.js {
-	background: #f7df1e;
-}
 .slide.js h2 {
 	color: #000;
-}
-.vue {
-	background: #409770;
-}
-
-.vue .slide-background {
-	background-image: url('https://raw.githubusercontent.com/ShareValue-Frontend/frontend-logos/main/vue-pattern.png');
-}
-
-.react {
-	background: #029fbc;
-}
-
-.react .slide-background {
-	background-image: url('https://raw.githubusercontent.com/ShareValue-Frontend/frontend-logos/main/react-pattern.png');
-}
-
-.angular {
-	background: #a21b1e;
-}
-
-.angular .slide-background {
-	background-image: url('https://raw.githubusercontent.com/ShareValue-Frontend/frontend-logos/main/angular-pattern.png');
 }
 
 @media screen and (min-width: 300px) and (max-width: 600px) {
