@@ -1,5 +1,8 @@
 <template>
-	<div class="wrapper">	
+	<div class="wrapper">
+		<div class="skip-button-container">
+			<a class="skip-button" href="#end-of-slides"><span style='font-size:20px;'>&#8595; skip</span></a>	
+		</div>
 		<div class="slide react">
 			<div class="slide-background"></div>
 			<div class="slide-title">
@@ -34,6 +37,7 @@
 				<strong class="block">ShareValue</strong>
 			</div>
 		</div>
+		<div id="end-of-slides"></div>
 	</div>
 </template>
 
@@ -48,14 +52,11 @@ window.onload = function () {}
 
 onMounted(() => {
 	lax.init()
-
 	console.log('lax: ', lax)
 	console.log('scroll: ', window.scrollY)
-
 	lax.addDriver('scrollY', function () {
 		return window.scrollY
 	})
-
 	lax.addElements('.slide-title', {
 		scrollY: {
 			translateY: [
@@ -119,7 +120,7 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .wrapper {
 	min-height: 100vh;
 	position: relative;
@@ -155,8 +156,6 @@ onMounted(() => {
 	display: inline-block;
 }
 
-
-
 .slide h2 {
 	font-size: 3rem;
 	text-transform: uppercase;
@@ -184,7 +183,6 @@ onMounted(() => {
 	background-position: top center;
 	opacity: 0.4;
 }
-
 .js .slide-logo {
 	position: absolute;
 	top: 50vh;
@@ -197,6 +195,23 @@ onMounted(() => {
 	color: #000;
 }
 
+.skip-button-container{
+	padding-top: 80px;
+	padding-right: 20px;
+	text-align:right;
+}
+
+.skip-button{
+	padding: 8px 20px;
+	border-radius: 15px;
+	background-color: black;
+	text-decoration: none;
+	color: white;
+	&:hover{
+    color: red;
+	}
+}
+
 @media screen and (min-width: 300px) and (max-width: 600px) {
 	.block {
 		font-size: 10vw;
@@ -205,7 +220,6 @@ onMounted(() => {
 	.slide h2 {
 		font-size: 7vw;
 	}
-
 	.slide.react h2,
 	.slide.vue h2,
 	.slide.angular h2 {
