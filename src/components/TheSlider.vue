@@ -4,9 +4,11 @@
 			<a class="skip-button" href="#end-of-slides"><span style='font-size:20px;'>&#8595; skip</span></a>	
 		</div>
 		<div class="slide react">
-			<div class="slide-background"></div>
 			<div class="slide-title">
 				<h2>Ben jij een react-rocket?</h2>
+			</div>
+			<div class="slide-image">
+				<img width="90" src="../assets/img/rocket.png" />
 			</div>
 			<div class="slide-subtitle">
 				<img width="150" height="150" src="https://sharevalue-frontend.netlify.app/img/react-img.png" />
@@ -41,7 +43,7 @@
 	</div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { defineComponent, onMounted } from '@vue/runtime-core'
 import lax from 'lax.js'
 
@@ -64,7 +66,7 @@ onMounted(() => {
 				[800, 0, -800],
 				{
 					easing: 'easeInOutQuart',
-					frameStep: 0.5
+					frameStep: 0.8
 				}
 			],
 			opacity: [
@@ -72,7 +74,7 @@ onMounted(() => {
 				[0, 1, 0],
 				{
 					easing: 'easeInOutQuart',
-					frameStep: 0.5
+					frameStep: 1
 				}
 			]
 		}
@@ -94,6 +96,14 @@ onMounted(() => {
 			translateX: [
 				['elInY', 'elOutY'],
 				[-500, -200]
+			]
+		}
+	})
+	lax.addElements('.slide-image', {
+		scrollY: {
+			translateX: [
+				['elInY', 'elOutY'],
+				[-800, 800]
 			]
 		}
 	})
@@ -145,7 +155,6 @@ onMounted(() => {
 	align-items: center;
 	text-align: center;
 }
-
 .block {
 	text-transform: uppercase;
 	background: #000;
@@ -155,7 +164,6 @@ onMounted(() => {
 
 	display: inline-block;
 }
-
 .slide h2 {
 	font-size: 3rem;
 	text-transform: uppercase;
@@ -169,7 +177,7 @@ onMounted(() => {
 }
 .slide img {
 	margin-top: 1rem;
-	width: 150px;
+	// width: 150px;
 	height: auto;
 	object-fit: cover;
 }
@@ -190,17 +198,14 @@ onMounted(() => {
 .slide-logo h2 {
 	margin-bottom: 1rem;
 }
-
 .slide.js h2 {
 	color: #000;
 }
-
 .skip-button-container{
-	padding-top: 80px;
+	padding-top: 100px;
 	padding-right: 20px;
 	text-align:right;
 }
-
 .skip-button{
 	padding: 8px 20px;
 	border-radius: 15px;
@@ -211,7 +216,6 @@ onMounted(() => {
     color: red;
 	}
 }
-
 @media screen and (min-width: 300px) and (max-width: 600px) {
 	.block {
 		font-size: 10vw;
