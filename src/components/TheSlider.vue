@@ -1,16 +1,14 @@
 <template>
 	<div class="wrapper">
-		<div class="slide js">
-			<div class="slide-background"></div>
-			<div class="slide-logo">
-				<h2>Frontend Developer</h2>
-				<strong class="block">ShareValue</strong>
-			</div>
+		<div class="skip-button-container">
+			<a class="skip-button" href="#end-of-slides"><span style='font-size:20px;'>&#8595; skip</span></a>	
 		</div>
 		<div class="slide react">
-			<div class="slide-background"></div>
 			<div class="slide-title">
 				<h2>Ben jij een react-rocket?</h2>
+			</div>
+			<div class="slide-image">
+				<img width="90" src="../assets/img/rocket.png" />
 			</div>
 			<div class="slide-subtitle">
 				<img width="150" height="150" src="https://sharevalue-frontend.netlify.app/img/react-img.png" />
@@ -34,10 +32,18 @@
 				<img width="150" height="150" src="https://sharevalue-frontend.netlify.app/img/vue-logo.png" />
 			</div>
 		</div>
+		<div class="slide js">
+			<div class="slide-background"></div>
+			<div class="slide-logo">
+				<h2>Frontend Developer</h2>
+				<strong class="block">ShareValue</strong>
+			</div>
+		</div>
+		<div id="end-of-slides"></div>
 	</div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { defineComponent, onMounted } from '@vue/runtime-core'
 import lax from 'lax.js'
 
@@ -48,14 +54,11 @@ window.onload = function () {}
 
 onMounted(() => {
 	lax.init()
-
 	console.log('lax: ', lax)
 	console.log('scroll: ', window.scrollY)
-
 	lax.addDriver('scrollY', function () {
 		return window.scrollY
 	})
-
 	lax.addElements('.slide-title', {
 		scrollY: {
 			translateY: [
@@ -63,7 +66,7 @@ onMounted(() => {
 				[800, 0, -800],
 				{
 					easing: 'easeInOutQuart',
-					frameStep: 0.5
+					frameStep: 0.8
 				}
 			],
 			opacity: [
@@ -71,7 +74,7 @@ onMounted(() => {
 				[0, 1, 0],
 				{
 					easing: 'easeInOutQuart',
-					frameStep: 0.5
+					frameStep: 1
 				}
 			]
 		}
@@ -93,6 +96,14 @@ onMounted(() => {
 			translateX: [
 				['elInY', 'elOutY'],
 				[-500, -200]
+			]
+		}
+	})
+	lax.addElements('.slide-image', {
+		scrollY: {
+			translateX: [
+				['elInY', 'elOutY'],
+				[-800, 800]
 			]
 		}
 	})
@@ -119,10 +130,11 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .wrapper {
 	min-height: 100vh;
 	position: relative;
+	background: linear-gradient(180deg, rgba(2,159,188,1) 12%, rgba(162,27,30,1) 34%, rgba(64,151,112,1) 70%, rgba(247,223,30,1) 84%);
 }
 .bg {
 	position: absolute;
@@ -137,14 +149,12 @@ onMounted(() => {
 	position: relative;
 	overflow: hidden;
 	height: 200vh;
-	background: grey;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 }
-
 .block {
 	text-transform: uppercase;
 	background: #000;
@@ -154,9 +164,6 @@ onMounted(() => {
 
 	display: inline-block;
 }
-
-
-
 .slide h2 {
 	font-size: 3rem;
 	text-transform: uppercase;
@@ -170,7 +177,7 @@ onMounted(() => {
 }
 .slide img {
 	margin-top: 1rem;
-	width: 150px;
+	// width: 150px;
 	height: auto;
 	object-fit: cover;
 }
@@ -184,11 +191,6 @@ onMounted(() => {
 	background-position: top center;
 	opacity: 0.4;
 }
-
-.js .slide-background {
-	background-image: url('https://raw.githubusercontent.com/ShareValue-Frontend/frontend-logos/main/js-pattern.png');
-}
-
 .js .slide-logo {
 	position: absolute;
 	top: 50vh;
@@ -196,37 +198,24 @@ onMounted(() => {
 .slide-logo h2 {
 	margin-bottom: 1rem;
 }
-
-.js {
-	background: #f7df1e;
-}
 .slide.js h2 {
 	color: #000;
 }
-.vue {
-	background: #409770;
+.skip-button-container{
+	padding-top: 100px;
+	padding-right: 20px;
+	text-align:right;
 }
-
-.vue .slide-background {
-	background-image: url('https://raw.githubusercontent.com/ShareValue-Frontend/frontend-logos/main/vue-pattern.png');
+.skip-button{
+	padding: 8px 20px;
+	border-radius: 15px;
+	background-color: black;
+	text-decoration: none;
+	color: white;
+	&:hover{
+    color: red;
+	}
 }
-
-.react {
-	background: #029fbc;
-}
-
-.react .slide-background {
-	background-image: url('https://raw.githubusercontent.com/ShareValue-Frontend/frontend-logos/main/react-pattern.png');
-}
-
-.angular {
-	background: #a21b1e;
-}
-
-.angular .slide-background {
-	background-image: url('https://raw.githubusercontent.com/ShareValue-Frontend/frontend-logos/main/angular-pattern.png');
-}
-
 @media screen and (min-width: 300px) and (max-width: 600px) {
 	.block {
 		font-size: 10vw;
@@ -235,7 +224,6 @@ onMounted(() => {
 	.slide h2 {
 		font-size: 7vw;
 	}
-
 	.slide.react h2,
 	.slide.vue h2,
 	.slide.angular h2 {
