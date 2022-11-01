@@ -5,12 +5,7 @@
 				<a class="navbar-brand" href="https://www.sharevalue.nl/">
 					<img alt="shareValue" src="../assets/img/shareValueLogo.svg"
 				/></a>
-				<button
-					class="navbar-toggler"
-					type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#navContent"
-					aria-controls="navContent"
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent"
 				>
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -18,31 +13,17 @@
 					<div class="col-5">
 						<ul class="navbar-nav first-menu mr-auto">
 							<li class="nav-item dropdown">
-								<a
-									class="nav-link nav-link-ltr dropdown-toggle"
-									href="https://www.sharevalue.nl/expertises"
-									>Expertises</a
-								>
+								<a class="nav-link nav-link-ltr dropdown-toggle" href="https://www.sharevalue.nl/expertises">Expertises</a>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="https://www.sharevalue.nl/expertises/azure">Azure</a>
-									<a class="dropdown-item" href="https://www.sharevalue.nl/expertises/dynamics-365"
-										>Dynamics 365</a
-									>
-									<a class="dropdown-item" href="https://www.sharevalue.nl/expertises/front-end"
-										>Front-End</a
-									>
-									<a class="dropdown-item" href="https://www.sharevalue.nl/expertises/dotnet"
-										>Microsoft .NET</a
-									>
-									<a class="dropdown-item" href="https://www.sharevalue.nl/expertises/microsoft-365"
-										>Microsoft 365</a
-									>
+									<a class="dropdown-item" href="https://www.sharevalue.nl/expertises/dynamics-365">Dynamics 365</a>
+									<a class="dropdown-item" href="https://www.sharevalue.nl/expertises/front-end">Front-End</a>
+									<a class="dropdown-item" href="https://www.sharevalue.nl/expertises/dotnet">Microsoft .NET</a>
+									<a class="dropdown-item" href="https://www.sharevalue.nl/expertises/microsoft-365">Microsoft 365</a>
 								</div>
 							</li>
 							<li class="nav-item active">
-								<a class="nav-link nav-link-ltr" href="https://www.sharevalue.nl/klantcases"
-									>Klantcases</a
-								>
+								<a class="nav-link nav-link-ltr" href="https://www.sharevalue.nl/klantcases">Klantcases</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link nav-link-ltr" href="https://www.sharevalue.nl/updates">Updates</a>
@@ -60,32 +41,12 @@
 								<a class="nav-link nav-link-ltr" href="https://www.sharevalue.nl/over-ons">Over ons</a>
 							</li>
 							<li class="nav-item dropdown">
-								<a
-									class="nav-link nav-link-ltr dropdown-toggle"
-									href="https://www.sharevalue.nl/word-onze-collega"
-									>Word onze collega</a
-								>
+								<a class="nav-link nav-link-ltr dropdown-toggle" href="https://www.sharevalue.nl/word-onze-collega">Word onze collega</a>
 								<div class="dropdown-menu">
-									<a
-										class="dropdown-item"
-										href="https://www.sharevalue.nl/word-onze-collega/vacatures"
-										>Vacatures</a
-									>
-									<a
-										class="dropdown-item"
-										href="https://www.sharevalue.nl/word-onze-collega/memberships"
-										>Memberships</a
-									>
-									<a
-										class="dropdown-item"
-										href="https://www.sharevalue.nl/word-onze-collega/collegas-aan-het-woord"
-										>Collega’s aan het woord</a
-									>
-									<a
-										class="dropdown-item"
-										href="https://www.sharevalue.nl/word-onze-collega/stagelopen"
-										>Stage lopen</a
-									>
+									<a class="dropdown-item" href="https://www.sharevalue.nl/word-onze-collega/vacatures">Vacatures</a>
+									<a class="dropdown-item" href="https://www.sharevalue.nl/word-onze-collega/memberships">Memberships</a>
+									<a class="dropdown-item" href="https://www.sharevalue.nl/word-onze-collega/collegas-aan-het-woord">Collega’s aan het woord</a>
+									<a class="dropdown-item" href="https://www.sharevalue.nl/word-onze-collega/stagelopen">Stage lopen</a>
 								</div>
 							</li>
 							<li class="nav-item">
