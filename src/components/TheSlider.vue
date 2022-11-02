@@ -32,14 +32,15 @@
 				<img width="150" height="150" src="https://sharevalue-frontend.netlify.app/img/vue-logo.png" />
 			</div>
 		</div>
-		<div class="slide js">
+		<div class="slide js" id="end-of-slides">
 			<div class="slide-background"></div>
 			<div class="slide-logo">
 				<h2>Frontend Developer</h2>
 				<strong class="block">ShareValue</strong>
+				<a class="home-page-link" href="https://www.sharevalue.nl/" >ben je geïnteresseerd ?</a>
 			</div>
+			
 		</div>
-		<div id="end-of-slides"></div>
 	</div>
 </template>
 
@@ -201,6 +202,7 @@ onMounted(() => {
 .slide.js h2 {
 	color: #000;
 }
+
 .skip-button-container{
 	padding-top: 100px;
 	padding-right: 20px;
@@ -215,6 +217,20 @@ onMounted(() => {
 	&:hover{
     color: red;
 	}
+}
+.home-page-link{
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  display: block;
+  margin-top: 20px;
+  &:hover{
+	color:red
+  }
+}
+
+.slide-image img{
+	transform: rotate(15deg);
 }
 @media screen and (min-width: 300px) and (max-width: 600px) {
 	.block {
