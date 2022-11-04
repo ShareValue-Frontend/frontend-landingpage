@@ -8,10 +8,10 @@
 				<h2>Ben jij een react-rocket?</h2>
 			</div>
 			<div class="slide-image">
-				<img width="90" src="../assets/img/rocket.png" />
+				<img width="240" src="../assets/img/rocket.png" />
 			</div>
 			<div class="slide-subtitle">
-				<img width="150" height="150" src="https://sharevalue-frontend.netlify.app/img/react-img.png" />
+				<img width="300" height="150" src="https://sharevalue-frontend.netlify.app/img/react-img.png" />
 			</div>
 		</div>
 		<div class="slide angular">
@@ -20,7 +20,7 @@
 				<h2>Of ben je één en al Angular-actie?</h2>
 			</div>
 			<div class="slide-subtitle">
-				<img width="150" height="150" src="https://angular.io/assets/images/logos/angular/angular.svg" />
+				<img width="300" height="150" src="https://angular.io/assets/images/logos/angular/angular.svg" />
 			</div>
 		</div>
 		<div class="slide vue">
@@ -29,17 +29,17 @@
 				<h2>Of ben je een Vue Fighter?</h2>
 			</div>
 			<div class="slide-subtitle">
-				<img width="150" height="150" src="https://sharevalue-frontend.netlify.app/img/vue-logo.png" />
+				<img width="300" height="150" src="https://sharevalue-frontend.netlify.app/img/vue-logo.png" />
 			</div>
 		</div>
-		<div class="slide js">
+		<div class="slide js" id="end-of-slides">
 			<div class="slide-background"></div>
 			<div class="slide-logo">
 				<h2>Frontend Developer</h2>
 				<strong class="block">ShareValue</strong>
+				<a class="home-page-link" href="https://www.sharevalue.nl/" >ben je geïnteresseerd?</a>
 			</div>
 		</div>
-		<div id="end-of-slides"></div>
 	</div>
 </template>
 
@@ -103,7 +103,7 @@ onMounted(() => {
 		scrollY: {
 			translateX: [
 				['elInY', 'elOutY'],
-				[-800, 800]
+				[-2800, 1400]
 			]
 		}
 	})
@@ -136,19 +136,10 @@ onMounted(() => {
 	position: relative;
 	background: linear-gradient(180deg, rgba(2,159,188,1) 12%, rgba(162,27,30,1) 34%, rgba(64,151,112,1) 70%, rgba(247,223,30,1) 84%);
 }
-.bg {
-	position: absolute;
-	left: 50px;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	background: #f7df1e;
-	transition: all 0.3s ease-in-out;
-}
 .slide {
 	position: relative;
 	overflow: hidden;
-	height: 200vh;
+	height: 90vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -161,11 +152,10 @@ onMounted(() => {
 	color: #f7df1e;
 	padding: 2rem;
 	font-size: 5rem;
-
 	display: inline-block;
 }
 .slide h2 {
-	font-size: 3rem;
+	font-size: 4.5rem;
 	text-transform: uppercase;
 	font-weight: bold;
 	color: #fff;
@@ -191,6 +181,9 @@ onMounted(() => {
 	background-position: top center;
 	opacity: 0.4;
 }
+.js{
+	height: 120vh;
+}
 .js .slide-logo {
 	position: absolute;
 	top: 50vh;
@@ -199,6 +192,7 @@ onMounted(() => {
 	margin-bottom: 1rem;
 }
 .slide.js h2 {
+	font-size: 6rem;
 	color: #000;
 }
 .skip-button-container{
@@ -216,6 +210,26 @@ onMounted(() => {
     color: red;
 	}
 }
+.home-page-link{
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
+  font-size: 2.9rem;
+  font-weight: bold;
+  display: block;
+  margin-top: 20px;
+  transition: 0.3s;
+  &:hover{
+	color:#ee7623
+  }
+}
+.slide-image {
+position: absolute;
+top: 55vh;
+}
+.slide-image img{
+	transform: rotate(15deg);
+}
 @media screen and (min-width: 300px) and (max-width: 600px) {
 	.block {
 		font-size: 10vw;
@@ -228,6 +242,15 @@ onMounted(() => {
 	.slide.vue h2,
 	.slide.angular h2 {
 		font-size: 11vw;
+	}
+}
+
+@media screen and (min-width: 1120px)  {
+	.block{
+		font-size: 10rem;
+	}
+	.home-page-link{
+		font-size: 5.5rem;
 	}
 }
 </style>

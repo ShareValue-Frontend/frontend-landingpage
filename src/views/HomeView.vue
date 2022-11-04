@@ -2,11 +2,11 @@
 	<div class="page-container">
 		<TheSlider />
 		<TheNavbar />
-		<TheQuote />
+		<!-- <TheQuote />
 		<TheInformation />
 		<TheTeamQuote />
 		<TheTeam />
-		<TheExpression />
+		<TheExpression /> -->
 		<TheFooter />
 	</div>
 </template>
