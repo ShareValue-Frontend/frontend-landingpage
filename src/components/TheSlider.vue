@@ -8,7 +8,7 @@
 				<h2>Ben jij een react-rocket?</h2>
 			</div>
 			<div class="slide-image">
-				<img width="90" src="../assets/img/rocket.png" />
+				<img width="240" src="../assets/img/rocket.png" />
 			</div>
 			<div class="slide-subtitle">
 				<img width="300" height="150" src="https://sharevalue-frontend.netlify.app/img/react-img.png" />
@@ -37,7 +37,7 @@
 			<div class="slide-logo">
 				<h2>Frontend Developer</h2>
 				<strong class="block">ShareValue</strong>
-				<a class="home-page-link" href="https://www.sharevalue.nl/" >ben je geïnteresseerd ?</a>
+				<a class="home-page-link" href="https://www.sharevalue.nl/" >ben je geïnteresseerd?</a>
 			</div>
 		</div>
 	</div>
@@ -103,7 +103,7 @@ onMounted(() => {
 		scrollY: {
 			translateX: [
 				['elInY', 'elOutY'],
-				[-2700, 1300]
+				[-2800, 1400]
 			]
 		}
 	})
@@ -211,13 +211,16 @@ onMounted(() => {
 	}
 }
 .home-page-link{
-  color: #fff;
-  font-size: 3.3rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
+  font-size: 2.9rem;
   font-weight: bold;
   display: block;
   margin-top: 20px;
+  transition: 0.3s;
   &:hover{
-	color:red
+	color:#ee7623
   }
 }
 .slide-image {
@@ -247,7 +250,7 @@ top: 55vh;
 		font-size: 10rem;
 	}
 	.home-page-link{
-		font-size: 6.2rem;
+		font-size: 5.5rem;
 	}
 }
 </style>
