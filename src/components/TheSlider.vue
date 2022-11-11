@@ -37,7 +37,7 @@
 			<div class="slide-logo">
 				<h2>Frontend Developer</h2>
 				<strong class="block">ShareValue</strong>
-				<a class="home-page-link" href="https://www.sharevalue.nl/" >ben je geïnteresseerd?</a>
+				<a class="home-page-link" href="https://www.sharevalue.nl/" target="_blank">ben je geïnteresseerd?</a>
 			</div>
 		</div>
 	</div>
@@ -212,7 +212,7 @@ onMounted(() => {
 }
 .home-page-link{
   text-transform: uppercase;
-  text-decoration: none;
+  text-decoration: underline;
   color: #000;
   font-size: 2.9rem;
   font-weight: bold;
