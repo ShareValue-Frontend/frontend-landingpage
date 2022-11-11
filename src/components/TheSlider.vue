@@ -1,7 +1,7 @@
 <template>
 	<div class="wrapper">
 		<div class="skip-button-container">
-			<a class="skip-button" href="#end-of-slides"><span style='font-size:20px;'>&#8595; skip</span></a>	
+			<a class="skip-button" href="#end-of-slides"><span style="font-size: 20px">&#8595; skip</span></a>
 		</div>
 		<div class="slide react">
 			<div class="slide-title">
@@ -134,7 +134,13 @@ onMounted(() => {
 .wrapper {
 	min-height: 100vh;
 	position: relative;
-	background: linear-gradient(180deg, rgba(2,159,188,1) 12%, rgba(162,27,30,1) 34%, rgba(64,151,112,1) 70%, rgba(247,223,30,1) 84%);
+	background: linear-gradient(
+		180deg,
+		rgba(2, 159, 188, 1) 12%,
+		rgba(162, 27, 30, 1) 34%,
+		rgba(64, 151, 112, 1) 70%,
+		rgba(247, 223, 30, 1) 84%
+	);
 }
 .slide {
 	position: relative;
@@ -181,7 +187,7 @@ onMounted(() => {
 	background-position: top center;
 	opacity: 0.4;
 }
-.js{
+.js {
 	height: 120vh;
 }
 .js .slide-logo {
@@ -192,45 +198,44 @@ onMounted(() => {
 	margin-bottom: 1rem;
 }
 .slide.js h2 {
-	font-size: 6rem;
 	color: #000;
 }
-.skip-button-container{
+.skip-button-container {
 	padding-top: 100px;
 	padding-right: 20px;
-	text-align:right;
+	text-align: right;
 }
-.skip-button{
+.skip-button {
 	padding: 8px 20px;
 	border-radius: 15px;
 	background-color: black;
 	text-decoration: none;
 	color: white;
-	&:hover{
-    color: red;
+	&:hover {
+		color: red;
 	}
 }
-.home-page-link{
-  text-transform: uppercase;
-  text-decoration: underline;
-  color: #000;
-  font-size: 2.9rem;
-  font-weight: bold;
-  display: block;
-  margin-top: 20px;
-  transition: 0.3s;
-  &:hover{
-	color:#ee7623
-  }
+.home-page-link {
+	text-transform: uppercase;
+	text-decoration: underline;
+	color: #000;
+	font-size: 2.9rem;
+	font-weight: bold;
+	display: block;
+	margin-top: 20px;
+	transition: 0.3s color, 0.3s text-decoration;
+	&:hover {
+		color: #ee7623;
+	}
 }
 .slide-image {
-position: absolute;
-top: 55vh;
+	position: absolute;
+	top: 55vh;
 }
-.slide-image img{
+.slide-image img {
 	transform: rotate(15deg);
 }
-@media screen and (min-width: 300px) and (max-width: 600px) {
+@media screen and (min-width: 300px) {
 	.block {
 		font-size: 10vw;
 		padding: 1.5rem 2rem;
@@ -238,18 +243,34 @@ top: 55vh;
 	.slide h2 {
 		font-size: 7vw;
 	}
+	.slide.js h2 {
+		font-size: 6.2vw;
+	}
 	.slide.react h2,
 	.slide.vue h2,
 	.slide.angular h2 {
 		font-size: 11vw;
 	}
+
+	.home-page-link {
+		font-size: 5.5vw
+	}
 }
 
-@media screen and (min-width: 1120px)  {
-	.block{
+@media screen and (min-width: 600px) and (max-width: 1119px) {
+	// .slide.js h2 {
+	// 	font-size: 3rem;
+	// }
+}
+@media screen and (min-width: 1120px) {
+	.slide.js h2 {
+		font-size: 6rem;
+	}
+
+	.block {
 		font-size: 10rem;
 	}
-	.home-page-link{
+	.home-page-link {
 		font-size: 5.5rem;
 	}
 }
