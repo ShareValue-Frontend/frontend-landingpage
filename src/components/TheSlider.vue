@@ -4,18 +4,17 @@
 			<a class="skip-button" href="#end-of-slides"><span style="font-size: 20px">&#8595; skip</span></a>
 		</div>
 		<div class="slide react">
-			<div class="slide-title">
-				<h2>Ben jij een react-rocket?</h2>
-			</div>
 			<div class="slide-image">
 				<img width="240" src="../assets/img/rocket.png" />
+			</div>
+			<div class="slide-title">
+				<h2>Ben jij een react-rocket?</h2>
 			</div>
 			<div class="slide-subtitle">
 				<img width="300" height="150" src="https://sharevalue-frontend.netlify.app/img/react-img.png" />
 			</div>
 		</div>
 		<div class="slide angular">
-			<div class="slide-background"></div>
 			<div class="slide-title">
 				<h2>Of ben je één en al Angular-actie?</h2>
 			</div>
@@ -24,7 +23,6 @@
 			</div>
 		</div>
 		<div class="slide vue">
-			<div class="slide-background"></div>
 			<div class="slide-title">
 				<h2>Of ben je een Vue Fighter?</h2>
 			</div>
@@ -33,7 +31,6 @@
 			</div>
 		</div>
 		<div class="slide js" id="end-of-slides">
-			<div class="slide-background"></div>
 			<div class="slide-logo">
 				<h2>Frontend Developer</h2>
 				<strong class="block">ShareValue</strong>
@@ -83,14 +80,6 @@ onMounted(() => {
 					easing: 'easeInOutQuart',
 					frameStep: 0.5
 				}
-			]
-		}
-	})
-	lax.addElements('.slide-background', {
-		scrollY: {
-			translateX: [
-				['elInY', 'elOutY'],
-				[-500, -200]
 			]
 		}
 	})
@@ -160,6 +149,7 @@ onMounted(() => {
 	text-transform: uppercase;
 	font-weight: bold;
 	color: #fff;
+	padding: 1rem;
 }
 .slide-subtitle {
 	margin-top: 2rem;
@@ -181,10 +171,6 @@ onMounted(() => {
 	background-repeat: repeat;
 	background-position: top center;
 	opacity: 0.4;
-}
-.js .slide-logo {
-	position: absolute;
-	top: 50vh;
 }
 .slide-logo h2 {
 	margin-bottom: 1rem;
@@ -222,7 +208,8 @@ onMounted(() => {
 }
 .slide-image {
 	position: absolute;
-	top: 55vh;
+	top: 40vh;
+	left: 0;
 }
 .slide-image img {
 	transform: rotate(15deg);
@@ -233,7 +220,7 @@ onMounted(() => {
 		padding: 1.5rem 2rem;
 	}
 	.slide h2 {
-		font-size: 7vw;
+		font-size: 6.5vw;
 	}
 	.slide.js h2 {
 		font-size: 6.2vw;
@@ -241,6 +228,12 @@ onMounted(() => {
 
 	.home-page-link {
 		font-size: 5.5vw;
+	}
+}
+@media screen and (max-width: 500px) {
+	.slide-image img,
+	.slide-subtitle img {
+		max-width: 100px;
 	}
 }
 
@@ -252,6 +245,9 @@ onMounted(() => {
 @media screen and (min-width: 1120px) {
 	.slide.js h2 {
 		font-size: 6rem;
+	}
+	.slide h2 {
+		padding: 1.5rem;
 	}
 
 	.block {
