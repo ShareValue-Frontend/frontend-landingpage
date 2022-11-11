@@ -5,7 +5,7 @@
 		</div>
 		<div class="slide react">
 			<div class="slide-image">
-				<img width="240" src="../assets/img/rocket.png" />
+				<img width="240" src="../assets/img/retro-rocket.png" />
 			</div>
 			<div class="slide-title">
 				<h2>Ben jij een react-rocket?</h2>
