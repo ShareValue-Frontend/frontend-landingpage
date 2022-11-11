@@ -44,21 +44,16 @@
 </template>
 
 <script setup lang="ts">
-import { defineComponent, onMounted } from '@vue/runtime-core'
+import { onMounted } from '@vue/runtime-core'
 import lax from 'lax.js'
-
-const frameWidth = 370
-const frameCount = 12
-
-window.onload = function () {}
 
 onMounted(() => {
 	lax.init()
-	console.log('lax: ', lax)
-	console.log('scroll: ', window.scrollY)
+
 	lax.addDriver('scrollY', function () {
 		return window.scrollY
 	})
+
 	lax.addElements('.slide-title', {
 		scrollY: {
 			translateY: [
@@ -145,7 +140,7 @@ onMounted(() => {
 .slide {
 	position: relative;
 	overflow: hidden;
-	height: 90vh;
+	height: 1250px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -186,9 +181,6 @@ onMounted(() => {
 	background-repeat: repeat;
 	background-position: top center;
 	opacity: 0.4;
-}
-.js {
-	height: 120vh;
 }
 .js .slide-logo {
 	position: absolute;
@@ -246,14 +238,9 @@ onMounted(() => {
 	.slide.js h2 {
 		font-size: 6.2vw;
 	}
-	.slide.react h2,
-	.slide.vue h2,
-	.slide.angular h2 {
-		font-size: 11vw;
-	}
 
 	.home-page-link {
-		font-size: 5.5vw
+		font-size: 5.5vw;
 	}
 }
 
