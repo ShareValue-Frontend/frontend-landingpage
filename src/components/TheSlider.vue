@@ -1,21 +1,20 @@
 <template>
 	<div class="wrapper">
 		<div class="skip-button-container">
-			<a class="skip-button" href="#end-of-slides"><span style='font-size:20px;'>&#8595; skip</span></a>	
+			<a class="skip-button" href="#end-of-slides"><span style="font-size: 20px">&#8595; skip</span></a>
 		</div>
 		<div class="slide react">
+			<div class="slide-image">
+				<img width="240" src="../assets/img/retro-rocket.png" />
+			</div>
 			<div class="slide-title">
 				<h2>Ben jij een react-rocket?</h2>
-			</div>
-			<div class="slide-image">
-				<img width="240" src="../assets/img/rocket.png" />
 			</div>
 			<div class="slide-subtitle">
 				<img width="300" height="150" src="https://sharevalue-frontend.netlify.app/img/react-img.png" />
 			</div>
 		</div>
 		<div class="slide angular">
-			<div class="slide-background"></div>
 			<div class="slide-title">
 				<h2>Of ben je één en al Angular-actie?</h2>
 			</div>
@@ -24,7 +23,6 @@
 			</div>
 		</div>
 		<div class="slide vue">
-			<div class="slide-background"></div>
 			<div class="slide-title">
 				<h2>Of ben je een Vue Fighter?</h2>
 			</div>
@@ -33,32 +31,26 @@
 			</div>
 		</div>
 		<div class="slide js" id="end-of-slides">
-			<div class="slide-background"></div>
 			<div class="slide-logo">
 				<h2>Frontend Developer</h2>
 				<strong class="block">ShareValue</strong>
-				<a class="home-page-link" href="https://www.sharevalue.nl/" >ben je geïnteresseerd?</a>
+				<a class="home-page-link" href="https://www.sharevalue.nl/" target="_blank">ben je geïnteresseerd?</a>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
-import { defineComponent, onMounted } from '@vue/runtime-core'
+import { onMounted } from '@vue/runtime-core'
 import lax from 'lax.js'
-
-const frameWidth = 370
-const frameCount = 12
-
-window.onload = function () {}
 
 onMounted(() => {
 	lax.init()
-	console.log('lax: ', lax)
-	console.log('scroll: ', window.scrollY)
+
 	lax.addDriver('scrollY', function () {
 		return window.scrollY
 	})
+
 	lax.addElements('.slide-title', {
 		scrollY: {
 			translateY: [
@@ -88,14 +80,6 @@ onMounted(() => {
 					easing: 'easeInOutQuart',
 					frameStep: 0.5
 				}
-			]
-		}
-	})
-	lax.addElements('.slide-background', {
-		scrollY: {
-			translateX: [
-				['elInY', 'elOutY'],
-				[-500, -200]
 			]
 		}
 	})
@@ -134,12 +118,18 @@ onMounted(() => {
 .wrapper {
 	min-height: 100vh;
 	position: relative;
-	background: linear-gradient(180deg, rgba(2,159,188,1) 12%, rgba(162,27,30,1) 34%, rgba(64,151,112,1) 70%, rgba(247,223,30,1) 84%);
+	background: linear-gradient(
+		180deg,
+		rgba(2, 159, 188, 1) 12%,
+		rgba(162, 27, 30, 1) 34%,
+		rgba(64, 151, 112, 1) 70%,
+		rgba(247, 223, 30, 1) 84%
+	);
 }
 .slide {
 	position: relative;
 	overflow: hidden;
-	height: 90vh;
+	height: 1250px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -159,6 +149,7 @@ onMounted(() => {
 	text-transform: uppercase;
 	font-weight: bold;
 	color: #fff;
+	padding: 1rem;
 }
 .slide-subtitle {
 	margin-top: 2rem;
@@ -181,75 +172,88 @@ onMounted(() => {
 	background-position: top center;
 	opacity: 0.4;
 }
-.js{
-	height: 120vh;
-}
-.js .slide-logo {
-	position: absolute;
-	top: 50vh;
-}
 .slide-logo h2 {
 	margin-bottom: 1rem;
 }
 .slide.js h2 {
-	font-size: 6rem;
 	color: #000;
 }
-.skip-button-container{
+.skip-button-container {
 	padding-top: 100px;
 	padding-right: 20px;
-	text-align:right;
+	text-align: right;
 }
-.skip-button{
+.skip-button {
 	padding: 8px 20px;
 	border-radius: 15px;
 	background-color: black;
 	text-decoration: none;
 	color: white;
-	&:hover{
-    color: red;
+	&:hover {
+		color: red;
 	}
 }
-.home-page-link{
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #000;
-  font-size: 2.9rem;
-  font-weight: bold;
-  display: block;
-  margin-top: 20px;
-  transition: 0.3s;
-  &:hover{
-	color:#ee7623
-  }
+.home-page-link {
+	text-transform: uppercase;
+	text-decoration: underline;
+	color: #000;
+	font-size: 2.9rem;
+	font-weight: bold;
+	display: block;
+	margin-top: 20px;
+	transition: 0.3s color, 0.3s text-decoration;
+	&:hover {
+		color: #ee7623;
+	}
 }
 .slide-image {
-position: absolute;
-top: 55vh;
+	position: absolute;
+	top: 40vh;
+	left: 0;
 }
-.slide-image img{
+.slide-image img {
 	transform: rotate(15deg);
 }
-@media screen and (min-width: 300px) and (max-width: 600px) {
+@media screen and (min-width: 300px) {
 	.block {
 		font-size: 10vw;
 		padding: 1.5rem 2rem;
 	}
 	.slide h2 {
-		font-size: 7vw;
+		font-size: 6.5vw;
 	}
-	.slide.react h2,
-	.slide.vue h2,
-	.slide.angular h2 {
-		font-size: 11vw;
+	.slide.js h2 {
+		font-size: 6.2vw;
+	}
+
+	.home-page-link {
+		font-size: 5.5vw;
+	}
+}
+@media screen and (max-width: 500px) {
+	.slide-image img,
+	.slide-subtitle img {
+		max-width: 100px;
 	}
 }
 
-@media screen and (min-width: 1120px)  {
-	.block{
+@media screen and (min-width: 600px) and (max-width: 1119px) {
+	// .slide.js h2 {
+	// 	font-size: 3rem;
+	// }
+}
+@media screen and (min-width: 1120px) {
+	.slide.js h2 {
+		font-size: 6rem;
+	}
+	.slide h2 {
+		padding: 1.5rem;
+	}
+
+	.block {
 		font-size: 10rem;
 	}
-	.home-page-link{
+	.home-page-link {
 		font-size: 5.5rem;
 	}
 }
