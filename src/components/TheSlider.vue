@@ -155,6 +155,9 @@ onMounted(() => {
 	margin-top: 2rem;
 	position: absolute;
 	top: 50%;
+	img {
+    	filter: drop-shadow(13px 10px 6px rgb(0 0 0 / 0.4));
+	}
 }
 .slide img {
 	margin-top: 1rem;
