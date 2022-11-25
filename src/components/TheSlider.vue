@@ -4,30 +4,38 @@
 			<a class="skip-button" href="#end-of-slides"><span style="font-size: 20px">&#8595; skip</span></a>
 		</div>
 		<div class="slide react">
-			<div class="slide-image">
-				<img width="240" src="../assets/img/retro-rocket.png" />
+			<div class="slide-subtitle">
+				<img width="300" height="150" src="../assets/img/react-img.png" />
 			</div>
 			<div class="slide-title">
 				<h2>Ben jij een react-rocket?</h2>
 			</div>
-			<div class="slide-subtitle">
-				<img width="300" height="150" src="https://sharevalue-frontend.netlify.app/img/react-img.png" />
+
+			<div class="react-slide-image slide-image">
+				<img width="240" src="../assets/img/retro-rocket.png" />
 			</div>
 		</div>
 		<div class="slide angular">
+			<div class="slide-subtitle">
+				<img width="300" height="150" src="../assets/img/angular-logo.png" />
+			</div>
 			<div class="slide-title">
 				<h2>Of ben je één en al Angular-actie?</h2>
 			</div>
-			<div class="slide-subtitle">
-				<img width="300" height="150" src="https://angular.io/assets/images/logos/angular/angular.svg" />
+
+			<div class="angular-slide-image slide-image">
+				<img width="240" src="../assets/img/angular-ninja.png" />
 			</div>
 		</div>
 		<div class="slide vue">
+			<div class="slide-subtitle">
+				<img width="300" height="150" src="../assets/img/vue-logo.png" />
+			</div>
 			<div class="slide-title">
 				<h2>Of ben je een Vue Fighter?</h2>
 			</div>
-			<div class="slide-subtitle">
-				<img width="300" height="150" src="https://sharevalue-frontend.netlify.app/img/vue-logo.png" />
+			<div class="vue-slide-image slide-image">
+				<img width="240" src="../assets/img/vue-fighter.png" />
 			</div>
 		</div>
 		<div class="slide js" id="end-of-slides">
@@ -83,11 +91,55 @@ onMounted(() => {
 			]
 		}
 	})
-	lax.addElements('.slide-image', {
+	lax.addElements('.react-slide-image ', {
 		scrollY: {
 			translateX: [
 				['elInY', 'elOutY'],
-				[-2800, 1400]
+				[-2000, 2000],
+				{
+					easing: 'easeInOutQuart',
+					frameStep: 0.5
+				}
+			],
+			translateY: [
+				['elInY', 'elOutY'],
+				[700, -500],
+				{
+					easing: 'easeInOutQuart',
+					frameStep: 1
+				}
+			]
+		}
+	})
+	lax.addElements('.angular-slide-image ', {
+		scrollY: {
+			translateX: [
+				['elInY', 'elOutY'],
+				[-2000, 2000],
+				{
+					easing: 'easeInOutQuart',
+					frameStep: 0.5
+				}
+			],
+			translateY: [
+				['elInY', 'elOutY'],
+				[-700, 500],
+				{
+					easing: 'easeInOutQuart',
+					frameStep: 1
+				}
+			]
+		}
+	})
+	lax.addElements('.vue-slide-image ', {
+		scrollY: {
+			translateX: [
+				['elInY', 'elOutY'],
+				[2000, -2000],
+				{
+					easing: 'easeInOutQuart',
+					frameStep: 0.5
+				}
 			]
 		}
 	})
@@ -125,6 +177,9 @@ onMounted(() => {
 		rgba(64, 151, 112, 1) 70%,
 		rgba(247, 223, 30, 1) 84%
 	);
+}
+.wrapper * {
+	transition: transform 0.1s ease;
 }
 .slide {
 	position: relative;
@@ -211,8 +266,17 @@ onMounted(() => {
 	top: 40vh;
 	left: 0;
 }
-.slide-image img {
+.slide-subtitle img {
+	filter: drop-shadow(13px 10px 6px rgb(0 0 0 / 0.4));
+}
+.react .slide-image img {
 	transform: rotate(15deg);
+}
+.angular .slide-image img {
+	transform: rotate(-40deg);
+}
+.vue .slide-image img {
+	transform: rotate(180deg);
 }
 @media screen and (min-width: 300px) {
 	.block {
