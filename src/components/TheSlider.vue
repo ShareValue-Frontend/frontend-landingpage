@@ -95,15 +95,15 @@ onMounted(() => {
 		scrollY: {
 			translateX: [
 				['elInY', 'elOutY'],
-				[-2000, 2000],
+				[-2500, 2500],
 				{
 					easing: 'easeInOutQuart',
-					frameStep: 0.5
+					frameStep: 1
 				}
 			],
 			translateY: [
 				['elInY', 'elOutY'],
-				[700, -500],
+				[0, -500],
 				{
 					easing: 'easeInOutQuart',
 					frameStep: 1
@@ -115,10 +115,10 @@ onMounted(() => {
 		scrollY: {
 			translateX: [
 				['elInY', 'elOutY'],
-				[-2000, 2000],
+				[-2500, 2500],
 				{
 					easing: 'easeInOutQuart',
-					frameStep: 0.5
+					frameStep: 1
 				}
 			],
 			translateY: [
@@ -135,7 +135,7 @@ onMounted(() => {
 		scrollY: {
 			translateX: [
 				['elInY', 'elOutY'],
-				[2000, -2000],
+				[2500, -2500],
 				{
 					easing: 'easeInOutQuart',
 					frameStep: 0.5
@@ -150,7 +150,7 @@ onMounted(() => {
 				[800, 0, -800],
 				{
 					easing: 'easeInOutQuart',
-					frameStep: 0.5
+					frameStep: 1
 				}
 			]
 			// opacity: [
@@ -158,7 +158,7 @@ onMounted(() => {
 			//   [0, 1, 0],
 			//   {
 			//     easing: "easeInOutQuart",
-			//     frameStep: 0.5
+			//     frameStep: 1
 			//   }
 			// ]
 		}
@@ -200,11 +200,14 @@ onMounted(() => {
 	display: inline-block;
 }
 .slide h2 {
-	font-size: 4.5rem;
+	font-size: clamp(2rem, 6.5vw, 100px);
 	text-transform: uppercase;
 	font-weight: bold;
 	color: #fff;
 	padding: 1rem;
+}
+.slide-title {
+	max-width: 1200px;
 }
 .slide-subtitle {
 	margin-top: 2rem;
@@ -213,7 +216,7 @@ onMounted(() => {
 }
 .slide img {
 	margin-top: 1rem;
-	// width: 150px;
+	width: clamp(150px, 10vw, 250px);
 	height: auto;
 	object-fit: cover;
 }
@@ -283,9 +286,6 @@ onMounted(() => {
 		font-size: 10vw;
 		padding: 1.5rem 2rem;
 	}
-	.slide h2 {
-		font-size: 6.5vw;
-	}
 	.slide.js h2 {
 		font-size: 6.2vw;
 	}
@@ -295,25 +295,20 @@ onMounted(() => {
 	}
 }
 @media screen and (max-width: 500px) {
-	.slide-image img,
-	.slide-subtitle img {
+	.slide-image img {
 		max-width: 100px;
 	}
 }
 
-@media screen and (min-width: 600px) and (max-width: 1119px) {
-	// .slide.js h2 {
-	// 	font-size: 3rem;
-	// }
+@media screen and (min-width: 1200px) {
+	.slide-subtitle img {
+		margin-top: 5rem;
+	}
 }
 @media screen and (min-width: 1120px) {
 	.slide.js h2 {
 		font-size: 6rem;
 	}
-	.slide h2 {
-		padding: 1.5rem;
-	}
-
 	.block {
 		font-size: 10rem;
 	}

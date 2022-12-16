@@ -40,12 +40,5 @@ npm run build
 
 ---
 
-## How to update Aframe text
-
-- Install [Blender](https://www.blender.org/)
-- Download [Neutraface font](https://www.cufonfonts.com/font/neutraface-text)
-- Open `.blend` file ![](./docs/images/open-blender.png)
-- Select text and press tab to change the text ![](./docs/images/blender-change-text.png)
-- If the font is not the same as in the browser. Select the font via this menu ![](./docs/images/blender-set-font.png)
-- When your done, save the `.blend` file 
-- After that export an `.obj` file with the default selected settings. ![](./docs/images/blender-export.png) ![](./docs/images/blender-save-export.png)
+## Lax.js
+For creating a parallax scrolling affect we are using [Lax.js](https://alexfox.dev/lax.js/) which makes it a bit easier. The documentation of the library can be [found on Github](https://github.com/alexfoxy/lax.js).
